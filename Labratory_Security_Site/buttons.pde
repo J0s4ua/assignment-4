@@ -6,9 +6,11 @@ class buttons{
   int button_width;
   int button_height;
   PVector position = new PVector(x,y);
-  buttons(String type){
+  buttons(String type, int xpos, int ypos){
     
     button_type = type;
+    position.x = xpos;
+    position.y = ypos;
     
   }
   
@@ -16,19 +18,33 @@ class buttons{
     if (button_type == "main menu"){
       button_width = 160;
       button_height = 40;
-      position.x = 200;
-      position.y = 300;
       rectMode(CENTER);
-      fill(100);
-      rect(position.x, position.y, button_width, button_height);
+      
       if(mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
       mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)){
         fill(255);
         rect(position.x, position.y, button_width + 5, button_height + 5);
+      } else {
+        fill(100);
+        rect(position.x, position.y, button_width, button_height);
       }
+      
     
     }
+    if (button_type == "guide"){
+        button_width = 40;
+        button_height = 40; 
+        rectMode(CENTER);
+        if(mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
+        mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)){
+          fill(255);
+          rect(position.x, position.y, button_width + 5, button_height + 5);
+      }else {
+        fill(100);
+        rect(position.x, position.y, button_width, button_height);
+      }
   }
 
 
+}
 }
