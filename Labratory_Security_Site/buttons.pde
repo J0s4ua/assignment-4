@@ -61,7 +61,8 @@ class buttons{
         fill(255);
         rect(position.x, position.y, button_width + 5, button_height + 5);//creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true){ //checks if user clicks while in the button area
-              Screen = new Screens(false, false, false); //begins the game
+              Screen = new Screens(false, false, false);
+             //begins the game
             }
       } else {
         fill(100);

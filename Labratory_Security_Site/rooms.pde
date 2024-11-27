@@ -11,4 +11,17 @@ class Rooms{
   
   
   }
+  
+  public void update(){
+  
+    if(type == 1){
+      
+      background(50);
+      fill(70);
+      rect(200,360,400,200);
+    
+    }
+  
+  
+  }
 }

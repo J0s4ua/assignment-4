@@ -9,6 +9,7 @@ class Screens{
   int page_count = 3;
   int page_num = 0;
   Pages page = new Pages();
+  Rooms room = new Rooms(1,0,0);
   
   
   
@@ -38,7 +39,7 @@ class Screens{
     
     }
     
-    if (guide == true){
+    else if (guide == true){
       
       button3 = new buttons("exit guide", 30, 30);
       background(0);
@@ -46,13 +47,10 @@ class Screens{
       button3.update();
       
       
-      
-      
-      
-
-    
-    
     }
+    else { 
+    room.update();}
+    
   
   
   }
