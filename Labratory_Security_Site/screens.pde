@@ -7,7 +7,10 @@ class Screens{
   boolean game_over;
   boolean guide;
   int page_count = 3;
-  ArrayList<Pages> pages = new ArrayList<>();
+  int page_num = 0;
+  Pages page = new Pages();
+  
+  
   
   int min;
   int max;
@@ -39,10 +42,11 @@ class Screens{
       
       button3 = new buttons("exit guide", 30, 30);
       background(0);
+      page.update();
       button3.update();
-      noStroke();
-      fill(70);
-      rect(380,200,10,350);
+      
+      
+      
       
       
 
