@@ -5,6 +5,7 @@ class buttons{
   int y;
   int button_width;
   int button_height;
+  Screens screen;
   PVector position = new PVector(x,y);
   buttons(String type, int xpos, int ypos){
     
@@ -15,6 +16,22 @@ class buttons{
   }
   
   public void update(){
+    if (button_type == "exit guide"){ //button to exit the guide
+          button_width = 20; //button width
+          button_height = 20; //button height
+          rectMode(CENTER); //set rectangle mode
+          if(mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
+          mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)){ //checks if the mouse is in the set bounderies, adding button width/height for collision
+            fill(255,0,0);
+            rect(position.x, position.y, button_width + 5, button_height + 5); //creates the button but lighter to show that the mouse is in the bounderies
+            if (mousePressed == true){ //checks if user clicks while in the button area
+              Screen = new Screens(true, false, false); //sets the screen to the main menu screen
+            }
+        }else {
+          fill(100,0,0);
+          rect(position.x, position.y, button_width, button_height); //creates the button but darker to show that the mouse is not in the bounderies
+        }
+      }
     if (button_type == "main menu"){
       button_width = 160;
       button_height = 40;
@@ -24,6 +41,9 @@ class buttons{
       mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)){
         fill(255);
         rect(position.x, position.y, button_width + 5, button_height + 5);
+        if (mousePressed == true){ //checks if user clicks while in the button area
+              Screen = new Screens(false, false, false); //begins the game
+            }
       } else {
         fill(100);
         rect(position.x, position.y, button_width, button_height);
@@ -39,10 +59,14 @@ class buttons{
         mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)){
           fill(255);
           rect(position.x, position.y, button_width + 5, button_height + 5);
+          if (mousePressed == true){
+            Screen = new Screens(false, false, true); //sets the screen to the guide screen
+          }
       }else {
         fill(100);
         rect(position.x, position.y, button_width, button_height);
       }
+        
   }
 
 
