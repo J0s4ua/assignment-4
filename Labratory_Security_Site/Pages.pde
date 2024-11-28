@@ -1,6 +1,7 @@
 class Pages{
   int pagenum;
    buttons button;
+   PImage page_1 = loadImage("anomalies1.png");
   String[] text = new String[4];
   
   Pages(){
@@ -36,7 +37,7 @@ class Pages{
       rect(380,200,10,350);
       rect(110,110, 140, 140);
       fill(255);
-      text(text[0],200,40);
+      image(page_1,0,0);
       button.update();
     
     }

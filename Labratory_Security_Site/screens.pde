@@ -30,6 +30,7 @@ class Screens{
       button = new buttons("main menu", 200, 300);
       background(0);
       button.update();
+      button.game();
       
       button2 = new buttons("guide", 350, 350);
       button2.update();
@@ -49,7 +50,9 @@ class Screens{
       
     }
     else { 
-    room.update();}
+    room.update();
+    
+    }
     
   
   
