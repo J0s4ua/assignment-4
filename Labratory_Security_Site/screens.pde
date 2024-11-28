@@ -32,9 +32,6 @@ class Screens{
       button.update();
       button.game();
       
-      button2 = new buttons("guide", 350, 350);
-      button2.update();
-      
 
     
     

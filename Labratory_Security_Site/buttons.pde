@@ -9,6 +9,8 @@ class buttons{
   Pages page_turn = new Pages();
   boolean Game_start = false;
   PVector position = new PVector(x,y);
+  PImage info = loadImage("info.png");
+  PImage info2 = loadImage("info2.png");
   buttons(String type, int xpos, int ypos){
     
     button_type = type;
@@ -27,7 +29,7 @@ class buttons{
             fill(255,0,0);
             rect(position.x, position.y, button_width + 5, button_height + 5); //creates the button but lighter to show that the mouse is in the bounderies
             if (mousePressed == true){ //checks if user clicks while in the button area
-              Screen = new Screens(true, false, false); //sets the screen to the main menu screen
+              Screen = new Screens(false, false, false); //closes guide
             }
         }else {
           fill(100,0,0);
@@ -81,13 +83,13 @@ class buttons{
         if(mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
         mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)){//checks if the mouse is in the set bounderies, adding button width/height for collision
           fill(255);
-          rect(position.x, position.y, button_width + 5, button_height + 5);//creates the button but lighter to show that the mouse is in the bounderies
+          image(info2, position.x-25, position.y-25);//creates the button but lighter to show that the mouse is in the bounderies
           if (mousePressed == true){//checks if user clicks while in the button area
             Screen = new Screens(false, false, true); //sets the screen to the guide screen
           }
       }else {
-        fill(100);
-        rect(position.x, position.y, button_width, button_height);//creates the button but darker to show that the mouse is not in the bounderies
+        fill(120);
+        image(info, position.x-20, position.y-20);//creates the button but darker to show that the mouse is not in the bounderies
       }
         
   }
