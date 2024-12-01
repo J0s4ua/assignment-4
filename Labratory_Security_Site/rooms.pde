@@ -1,4 +1,4 @@
-class Rooms{
+class Rooms{ //the rooms shown in the cameras
   float type;
   float x = 0;
   float day = 1;

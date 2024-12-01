@@ -1,5 +1,5 @@
 
-class Screens{
+class Screens{ //screens such as the game over, guide, etc.
   buttons button;
   buttons button2;
   buttons button3;

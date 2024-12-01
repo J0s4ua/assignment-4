@@ -1,21 +1,21 @@
-class buttons{
+class buttons{//loads the buttons
   String button_type; //The type of button that is made
   boolean button_pressed; // check if the button is pressed
-  int x;
-  int y;
-  int button_width;
-  int button_height;
-  Screens screen;
-  Pages page_turn = new Pages();
-  boolean Game_start = false;
-  PVector position = new PVector(x,y);
-  PImage info = loadImage("info.png");
-  PImage info2 = loadImage("info2.png");
-  buttons(String type, int xpos, int ypos){
+  int x; //button horizontal location
+  int y; //button vertical location
+  int button_width; //button width
+  int button_height; //button height
+  Screens screen; //sets screens based on the button 
+  Pages page_turn = new Pages(); //loads the guide pages
+  boolean Game_start = false; //checks if the game is started or not (in case certain buttons are only loaded if the game is started)
+  PVector position = new PVector(x,y); //the position of the rooms in the cameras
+  PImage info = loadImage("info.png"); //information button (unselected)
+  PImage info2 = loadImage("info2.png"); //information button (selected)
+  buttons(String type, int xpos, int ypos){ //loads inserted variables in the class
     
-    button_type = type;
-    position.x = xpos;
-    position.y = ypos;
+    button_type = type; //the kind of button that is used
+    position.x = xpos; //sets the horizontal location of the button
+    position.y = ypos; // sets the vertical location of the button
     
   }
   

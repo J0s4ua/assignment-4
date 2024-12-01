@@ -1,80 +1,77 @@
-class Pages{
-  int pagenum;
-   buttons button;
-   PImage page_1 = loadImage("anomalies1.png");
-  String[] text = new String[4];
+class Pages{ //the enemy guide pages
+  int pagenum; //the page number
+   buttons button; //sets up the button
+   PImage page_1 = loadImage("anomalies1.png"); //loads the first page (we are limited to 2 text objects so Im using sprites to get past that)
   
   Pages(){
   
   
   }
-  public void page_check(){
+  public void page_check(){ //unused
     
-      if (pagenum == 0){
-        pagenum = 3;
-    } else {
-    
-      pagenum--;
-    
-    
-    }
+      
     
   
   
   }
 
-  public void update(){
+  public void update(){ //loads the pages
+   
     
-    text[0] = "Anomaly #84 \n \n A flesh abomanation hive that \n always holds a mask. \n This anomaly creates drones out \n of its own or anothers flesh. It's \n drones can burrow into materials \n and always have a mask similar \n to its hive. \n To deal with this anomaly's \n drones, attack it with the  sentries \n until it flees (Click).";
-    text[1] = "";
-    text[2] = "";
-    text[3] = "";
-    
-    if(pagenum == 0){
+    if(pagenum == 0){ //loads first page, gives info on first anomaly
       background(0);
-      button = new buttons("prev page", 30, 380);
+      button = new buttons("prev page", 30, 380); //loads the button to get to the previous page
       fill(70);
       rect(380,200,10,350);
       rect(110,110, 140, 140);
       fill(255);
-      image(page_1,0,0);
-      button.update();
+      image(page_1,0,0); //loads the page
+      button.update(); //updates the button state
     
     }
     
-    if(pagenum == 1){
+    if(pagenum == 1){ //loads second page
       background(0);
-      button = new buttons("prev page", 30, 380);
+      button = new buttons("prev page", 30, 380); //loads the button to get to the previous page
       fill(70);
       rect(380,200,10,350);
       rect(110,110, 140, 140);
       fill(255);
-      text(text[1],200,40);
-      button.update();
+      image(page_1,0,0); //loads the page
+      button.update(); //updates the button state
     
     }
     
-    if(pagenum == 2){
+    if(pagenum == 2){ //loads third page
       background(0);
-      button = new buttons("prev page", 30, 380);
+      button = new buttons("prev page", 30, 380); //loads the button to get to the previous page
       fill(70);
       rect(380,200,10,350);
       rect(110,110, 140, 140);
       fill(255);
-      text(text[2],200,40);
-      button.update();
+      image(page_1,0,0); //loads the page
+      button.update(); //updates the button state
     
     }
     
-    if(pagenum == 3){
+    if(pagenum == 3){ //loads (unused) fourth page
       background(0);
-      button = new buttons("prev page", 30, 380);
+      button = new buttons("prev page", 30, 380); //loads the button to get to the previous page
       fill(70);
       rect(380,200,10,350);
       rect(110,110, 140, 140);
       fill(255);
-      text(text[3],200,40);
-      button.update();
+      image(page_1,0,0); //loads the page
+      button.update(); //updates the button state
+    
+    }
+    
+    if (pagenum == 0){ //
+        pagenum = 3;
+    } else {
+    
+      pagenum--;
+    
     
     }
     
