@@ -8,6 +8,8 @@ class Rooms{ //the rooms shown in the cameras
   PImage computer2 = loadImage("computer2.png"); //loads computer warning state (when there is an anomaly in the area)
   PImage dark = loadImage("darkness.png"); //darkness effect around the room
   PImage room1 = loadImage("room.png");
+  PImage bullet = loadImage("gun_shot.png");
+  PImage bullet2 = loadImage("gun_shot2.png");
   PVector position = new PVector(x,y);
   buttons button2;
   buttons button3;
@@ -60,7 +62,7 @@ class Rooms{ //the rooms shown in the cameras
       if(type == 2){
       
       
-      if (keyPressed == true){
+      if (keyPressed == true && key != 'e'){
         
         if(position.x <= -800){
         
@@ -153,6 +155,7 @@ class Rooms{ //the rooms shown in the cameras
         if(flash == true){
         fill(255,255,255,50);
         rect(width/2,height/2,width,height);
+        image(bullet,mouseX-20,mouseY-20);
         
         
         
@@ -166,11 +169,7 @@ class Rooms{ //the rooms shown in the cameras
           flash = true;
         }
         
-      } else{
-      
-        flash = false;
-      
-      }
+      } 
     
     }
     }

@@ -10,6 +10,7 @@ class Screens{ //screens such as the game over, guide, etc.
   int page_num = 0;
   Pages page = new Pages();
   Rooms room = new Rooms(1,0,0);
+  PImage title = loadImage("labratory_security-site_title.png"); //loads title_screen gui appearance
   
   
   
@@ -31,6 +32,7 @@ class Screens{ //screens such as the game over, guide, etc.
       background(0);
       button.update();
       button.game();
+      image(title,0,0);
       
 
     
