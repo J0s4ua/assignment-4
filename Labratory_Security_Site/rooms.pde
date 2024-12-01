@@ -12,6 +12,7 @@ class Rooms{
   buttons button2;
   buttons button3;
   boolean guide;
+  boolean flash;
   Pages page = new Pages();
   Rooms (int t, int x2, int y2){
   
@@ -50,15 +51,50 @@ class Rooms{
         }
       
       }
+      
+      GUI player_gui = new GUI(health,day);
+      player_gui.update();
+      
     }
       
       if(type == 2){
       
-        if(position.x < 0){
+      
+      if (keyPressed == true){
         
-       position.x = 0;
+        if(position.x <= -800){
+        
+       position.x = -800;
+      
+      } else { 
+      
+        if(key == 'd'){
+        
+        position.x = position.x - 4;
+        
+        }
       
       }
+      
+      if(position.x < 0){
+        
+       if(key == 'a'){
+        
+        position.x = position.x + 4;
+        
+        }
+      
+      }else { 
+      
+        position.x = 0;
+      
+      }
+      
+      print(position.x);
+        
+      
+      }
+      
       background(50);
       fill(70);
       rect(200,360,400,200);
@@ -66,25 +102,77 @@ class Rooms{
       
       image(dark,0,0);
       
-      if (mouseX > 130 && mouseX < 270 && mouseY > 120 && mouseY < 200){
+      if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 40){
+        fill(150,0,0);
+        rect(42,42,0,0);
         if(mousePressed == true){
         type = 1;
         }
       
       }
       else {
-      
-        rect(20,20,50,50);
+      fill(100,0,0);
+        rect(40,40,0,0);
       
       }
+      
+      
     
     }
     
     button2 = new buttons("guide", 350, 350);
     button2.update();
     
-    GUI player_gui = new GUI(health,day);
-    player_gui.update();
+    
+    if(type == 2){
+    if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 40){
+        fill(150,0,0);
+        rect(20,20,42,42);
+        if(mousePressed == true){
+        type = 1;
+        }
+      
+      }
+      else {
+      fill(100,0,0);
+        rect(20,20,40,40);
+      
+      }
+      
+      noFill();
+      stroke(0,255,255);
+      strokeWeight(2);
+      arc(mouseX, mouseY, 20,20,0,PI*2);
+      line(mouseX-20,mouseY,mouseX+20,mouseY);
+      line(mouseX,mouseY-20,mouseX,mouseY+20);
+      strokeWeight(0);
+      
+      
+      if(keyPressed == true && key == 'e'){
+        
+        if(flash == true){
+        fill(255,255,255,50);
+        rect(width/2,height/2,width,height);
+        
+        
+        
+        }
+        
+        if(flash == true){
+          flash = false;
+        }
+        
+        if(flash == false){
+          flash = true;
+        }
+        
+      } else{
+      
+        flash = false;
+      
+      }
+    
+    }
     }
     
     
