@@ -34,10 +34,14 @@ class Screens { //screens such as the game over, guide, etc.
       button3.update();
     } else if (game_over == true) {
 
-      button3 = new buttons("exit_guide", 30, 30);
+      button3 = new buttons("exit_guide", 200, 350);
+      if (high_score_days < day){high_score_days = day;}
+      if (high_score_time < time){high_score_time = time;}
+      time = 0;
       background(0);
       page.update();
       button3.update();
+      text("You survived : " + day + "days. /n and" + time + "seconds. /n Your highest amount is " + high_score_days + "days /n and " + high_score_time + "/n are you willing to try again?",30,40);
     } else {
       room.update();
     }

@@ -1,7 +1,7 @@
 class GUI {
 
 
-  float day; //the amount of days survived, anomaly chance counter gets increased per day
+  
   float guiX = 0; //gui horizontal position
   float guiY = 320; //gui vertical position
   PImage phone = loadImage("phone.png"); //loads gui appearance

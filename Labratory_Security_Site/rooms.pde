@@ -134,19 +134,9 @@ class Rooms { //the rooms shown in the cameras
 
       button2 = new buttons("guide", 350, 350);
       button2.update();
-
-      if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 40) {
-        fill(150, 0, 0);
-        rect(42, 42, 0, 0);
-        if (mousePressed == true) {
-          static_blink = true;
-          type = 1;
-        }
-      } else {
-        fill(100, 0, 0);
-        rect(40, 40, 0, 0);
-      }
     }
+
+
 
     if (type == 3) {
 
@@ -157,17 +147,7 @@ class Rooms { //the rooms shown in the cameras
 
       image(dark, 0, 0);
 
-      if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 80) {
-        fill(150, 0, 0);
-        rect(42, 42, 0, 0);
-        if (mousePressed == true) {
-          static_blink = true;
-          type = 1;
-        }
-      } else {
-        fill(100, 0, 0);
-        rect(40, 40, 0, 0);
-      }
+
 
 
       if (keyPressed == true && key == 'e') {
@@ -208,6 +188,10 @@ class Rooms { //the rooms shown in the cameras
         fill(100);
         rect(20, 200, 40, 40);
       }
+      
+      button2 = new buttons("guide", 350, 350);
+      button2.update();
+      
     }
 
     if (flash == true) {
@@ -221,8 +205,36 @@ class Rooms { //the rooms shown in the cameras
 
       PImage camera_gui = loadImage("camera_gui" + ((int)type -1) + ".png");
       image(camera_gui, 0, 0);
+      
 
       if (keyPressed == true && key == 'e') {
+        if (keyPressed == true && key != 'e') {
+
+          if (position.x <= -800) {
+
+            position.x = -800;
+          } else {
+
+            if (key == 'd') {
+
+              position.x = position.x - 4;
+            }
+          }
+
+          if (position.x < 0) {
+
+            if (key == 'a') {
+
+              position.x = position.x + 4;
+            }
+          } else {
+
+            position.x = 0;
+          }
+        }
+
+        
+
 
         if (flash == true) {
           fill(255, 255, 255, 50);
@@ -237,33 +249,46 @@ class Rooms { //the rooms shown in the cameras
           line(mouseX-20, mouseY, mouseX+20, mouseY);
           line(mouseX, mouseY-20, mouseX, mouseY+20);
           strokeWeight(0);
-
-          if (keyPressed == true && key != 'e') {
-
-            if (position.x <= -800) {
-
-              position.x = -800;
-            } else {
-
-              if (key == 'd') {
-
-                position.x = position.x - 4;
-              }
-            }
-
-            if (position.x < 0) {
-
-              if (key == 'a') {
-
-                position.x = position.x + 4;
-              }
-            } else {
-
-              position.x = 0;
-            }
-          }
         }
       }
+
+      if (keyPressed == true && key != 'e') {
+
+        if (position.x <= -800) {
+
+          position.x = -800;
+        } else {
+
+          if (key == 'd') {
+
+            position.x = position.x - 4;
+          }
+        }
+
+        if (position.x < 0) {
+
+          if (key == 'a') {
+
+            position.x = position.x + 4;
+          }
+        } else {
+
+          position.x = 0;
+        }
+      }
+      
+      if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 40) {
+          fill(200, 0, 0);
+          rect(20, 20, 40, 40);
+          if (mousePressed == true) {
+            static_blink = true;
+            type = 1;
+          }
+        } else {
+          fill(250, 0, 0);
+          rect(20, 20, 40, 40);
+        }
+      
     }
 
     if (static_blink == true) {
