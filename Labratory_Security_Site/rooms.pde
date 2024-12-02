@@ -122,6 +122,9 @@ public class Rooms{ //the rooms shown in the cameras
       
       }
       
+      Anomalies anomaly = new Anomalies();
+      anomaly.update();
+    anomaly.chance();
       
     
     }

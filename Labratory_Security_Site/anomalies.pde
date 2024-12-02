@@ -26,7 +26,7 @@ class Anomalies{
    
      chance[1] = (int)random(0,100);
      
-     if(chance[1] == 50){
+     if(chance[1] >=40 && chance[1] <= 50){
      
        anomaly_spawned[1] = true;
        
@@ -35,6 +35,7 @@ class Anomalies{
      if (anomaly_spawned[1] == true){
      
        anomaly_count[1]++;
+       print(anomaly_count[1] + "anomaly_84 spawned!");
        chance[1] = 0;
        anomaly_spawned[1] = false;
      
