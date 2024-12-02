@@ -1,11 +1,12 @@
 class GUI{
   
-  float time; //the time
-  float health; //secutiry health, if it reaches 0, game over
-  float day; //the amount of days survived, anomaly chance counter gets increased per day
+  public float time; //the time
+  public float health; //secutiry health, if it reaches 0, game over
+  public float day; //the amount of days survived, anomaly chance counter gets increased per day
   float guiX = 0; //gui horizontal position
   float guiY = 320; //gui vertical position
   PImage phone = loadImage("phone.png"); //loads gui appearance
+  Anomalies anomaly = new Anomalies();
   
   GUI(float h, float d){ //loads the health and the day counter
     
@@ -48,6 +49,8 @@ class GUI{
     } else {
     
     time = time + 0.1; //add 0.1 to the time per tick
+    anomaly.update();
+    anomaly.chance();
     
     }
   }

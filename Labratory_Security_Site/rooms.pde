@@ -1,4 +1,4 @@
-class Rooms{ //the rooms shown in the cameras
+public class Rooms{ //the rooms shown in the cameras
   float type;
   float x = 0;
   float day = 1;
@@ -10,7 +10,10 @@ class Rooms{ //the rooms shown in the cameras
   PImage room1 = loadImage("room.png");
   PImage bullet = loadImage("gun_shot.png");
   PImage bullet2 = loadImage("gun_shot2.png");
+  PImage anomaly_84_a = loadImage("anomaly_84.png");
+  PImage anomaly_84_a_1 = loadImage("anomaly_85.png");
   PVector position = new PVector(x,y);
+  
   buttons button2;
   buttons button3;
   boolean guide;
@@ -56,6 +59,7 @@ class Rooms{ //the rooms shown in the cameras
       
       GUI player_gui = new GUI(health,day);
       player_gui.update();
+      
       
     }
       
@@ -150,6 +154,8 @@ class Rooms{ //the rooms shown in the cameras
       strokeWeight(0);
       
       
+      
+      
       if(keyPressed == true && key == 'e'){
         
         if(flash == true){
@@ -168,6 +174,8 @@ class Rooms{ //the rooms shown in the cameras
         if(flash == false){
           flash = true;
         }
+        
+        
         
       } 
     
