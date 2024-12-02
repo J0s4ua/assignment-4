@@ -1,7 +1,6 @@
 class GUI{
   
-  float time; //the time
-  float health; //secutiry health, if it reaches 0, game over
+  
   float day; //the amount of days survived, anomaly chance counter gets increased per day
   float guiX = 0; //gui horizontal position
   float guiY = 320; //gui vertical position

@@ -1,4 +1,9 @@
-
+public float time; //the time
+public float health; //secutiry health, if it reaches 0, game over
+boolean[] anomaly_active = new boolean[3];
+int[] anomaly_count = new int[3];
+int[] anomaly_max = new int[3];
+int[] anomaly_location = new int[3];
 Screens Screen; //sets up the screens
 
 

@@ -8,13 +8,17 @@ class Rooms{ //the rooms shown in the cameras
   PImage computer2 = loadImage("computer2.png"); //loads computer warning state (when there is an anomaly in the area)
   PImage dark = loadImage("darkness.png"); //darkness effect around the room
   PImage room1 = loadImage("room.png");
+  PImage room2 = loadImage("room2.png");
   PImage bullet = loadImage("gun_shot.png");
-  PImage bullet2 = loadImage("gun_shot2.png");
+  PImage bullet2 = loadImage("gun_shot3.png");
   PVector position = new PVector(x,y);
   buttons button2;
   buttons button3;
   boolean guide;
   boolean flash;
+  PImage static1 = loadImage("gun_shot3.png");
+  boolean static_blink = false;
+  int i = 1;
   Pages page = new Pages();
   Rooms (int t, int x2, int y2){
   
@@ -47,9 +51,10 @@ class Rooms{ //the rooms shown in the cameras
       image(computer,0,50);
       
       image(dark,0,0);
-      if (mouseX > 130 && mouseX < 270 && mouseY > 120 && mouseY < 200){
+      if (mouseX > 130 && mouseX < 270 && mouseY > 120 && mouseY < 240){
         if(mousePressed == true){
-        type = 2;
+          static_blink = true;
+          type = 2;
         }
       
       }
@@ -104,11 +109,111 @@ class Rooms{ //the rooms shown in the cameras
       
       image(dark,0,0);
       
-      if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 40){
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240){
+        fill(150);
+        rect(380,200,42,42);
+        if(mousePressed == true){
+          type = 3;
+          static_blink = true;
+          mousePressed = false;
+        }
+      
+      }else {
+      
+      fill(100);
+      rect(380,200,40,40);
+    }
+      
+      
+      
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240){
+        fill(150);
+        rect(20,200,42,42);
+        if(mousePressed == true){
+          type = 2;
+          static_blink = true;
+          mousePressed = false;
+          
+        }
+        
+    
+    } else {
+      
+      fill(100);
+      rect(20,200,40,40);
+    }
+    
+    
+    
+      
+    
+    
+    if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 40){
         fill(150,0,0);
         rect(42,42,0,0);
         if(mousePressed == true){
+          static_blink = true;
         type = 1;
+        }
+      
+      }
+      else {
+      fill(100,0,0);
+        rect(40,40,0,0);
+      
+      }
+    button2 = new buttons("guide", 350, 350);
+    button2.update();
+      }
+    
+    if(type == 3){
+      if (keyPressed == true && key != 'e'){
+        
+        if(position.x <= -800){
+        
+       position.x = -800;
+      
+      } else { 
+      
+        if(key == 'd'){
+        
+        position.x = position.x - 4;
+        
+        }
+      
+      }
+      
+      if(position.x < 0){
+        
+       if(key == 'a'){
+        
+        position.x = position.x + 4;
+        
+        }
+      
+      }else { 
+      
+        position.x = 0;
+      
+      }
+      
+      print(position.x);
+        
+      
+      }
+      background(50);
+      fill(70);
+      rect(200,360,400,200);
+      image(room2,position.x,y);
+      
+      image(dark,0,0);
+      
+    if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 80){
+        fill(150,0,0);
+        rect(42,42,0,0);
+        if(mousePressed == true){
+          static_blink = true;
+          type = 1;
         }
       
       }
@@ -119,27 +224,6 @@ class Rooms{ //the rooms shown in the cameras
       }
       
       
-    
-    }
-    
-    button2 = new buttons("guide", 350, 350);
-    button2.update();
-    
-    
-    if(type == 2){
-    if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 40){
-        fill(150,0,0);
-        rect(20,20,42,42);
-        if(mousePressed == true){
-        type = 1;
-        }
-      
-      }
-      else {
-      fill(100,0,0);
-        rect(20,20,40,40);
-      
-      }
       
       noFill();
       stroke(0,255,255);
@@ -155,23 +239,89 @@ class Rooms{ //the rooms shown in the cameras
         if(flash == true){
         fill(255,255,255,50);
         rect(width/2,height/2,width,height);
+        image(bullet2,pmouseX-20,pmouseY-20);
         image(bullet,mouseX-20,mouseY-20);
+        
         
         
         
         }
         
-        if(flash == true){
+        
+      
+    }
+    
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240){
+        fill(150);
+        rect(380,200,42,42);
+        if(mousePressed == true){
+          
+            type = 3;
+            static_blink = true;
+            mousePressed = false;
+            
+        }
+      
+      }else {
+      
+      fill(100);
+      rect(380,200,40,40);
+    }
+      
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240){
+        fill(150);
+        rect(20,200,42,42);
+        if(mousePressed == true){
+          type = 2;
+          static_blink = true;
+          mousePressed = false;
+          }
+        }else {
+      
+      fill(100);
+      rect(20,200,40,40);
+    }
+    
+    } 
+      
+        
+        
+        
+        
+        
+       
+    
+    if(flash == true){
           flash = false;
         }
         
         if(flash == false){
           flash = true;
         }
-        
-      } 
     
-    }
+    if(static_blink == true){
+          
+          
+            static1 = loadImage("static" + i + ".png");
+            image(static1,0,0);
+            i++;
+            delay(100);
+            print(type);
+            
+            if (i >= 3){
+            
+            static_blink = false;
+            i = 1;
+          
+          }
+            
+          
+          
+          
+        
+        
+        }
+    
     }
     
     
