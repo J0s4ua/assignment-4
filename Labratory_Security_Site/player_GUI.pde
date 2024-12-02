@@ -49,6 +49,9 @@ class GUI{
     time = time + 0.1; //add 0.1 to the time per tick
     
     }
+    
+    
+    
   }
 
 

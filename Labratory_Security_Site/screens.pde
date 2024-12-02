@@ -48,6 +48,17 @@ class Screens{ //screens such as the game over, guide, etc.
       
       
     }
+    
+    
+    else if (game_over == true){
+      
+      button3 = new buttons("exit_guide", 30, 30);
+      background(0);
+      page.update();
+      button3.update();
+      
+      
+    }
     else { 
     room.update();
     

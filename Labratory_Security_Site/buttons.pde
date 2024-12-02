@@ -93,7 +93,25 @@ class buttons{//loads the buttons
       }
         
   }
-
+  
+  if (button_type == "game_over"){//checks the type of button
+        button_width = 120;//button width
+        button_height = 40; //button height
+        rectMode(CENTER);//set rectangle mode
+        if(mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
+        mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)){//checks if the mouse is in the set bounderies, adding button width/height for collision
+          fill(255);
+          rect(button_width, button_height, position.x-25, position.y-25);//creates the button but lighter to show that the mouse is in the bounderies
+          if (mousePressed == true){//checks if user clicks while in the button area
+            Screen = new Screens(true, false, false); //sets the screen to the main menu screen
+          }
+      }else {
+        fill(120);
+        image(info, position.x-20, position.y-20);//creates the button but darker to show that the mouse is not in the bounderies
+      }
+        
+  }
+  
 
 }
   public boolean game(){

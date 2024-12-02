@@ -194,13 +194,7 @@ class Rooms{ //the rooms shown in the cameras
       
       
       
-      noFill();
-      stroke(0,255,255);
-      strokeWeight(2);
-      arc(mouseX, mouseY, 20,20,0,PI*2);
-      line(mouseX-20,mouseY,mouseX+20,mouseY);
-      line(mouseX,mouseY-20,mouseX,mouseY+20);
-      strokeWeight(0);
+      
       
       
       if(keyPressed == true && key == 'e'){
@@ -279,6 +273,14 @@ class Rooms{ //the rooms shown in the cameras
         rect(width/2,height/2,width,height);
         image(bullet2,pmouseX-20,pmouseY-20);
         image(bullet,mouseX-20,mouseY-20);
+        
+        noFill();
+      stroke(0,255,255);
+      strokeWeight(2);
+      arc(mouseX, mouseY, 20,20,0,PI*2);
+      line(mouseX-20,mouseY,mouseX+20,mouseY);
+      line(mouseX,mouseY-20,mouseX,mouseY+20);
+      strokeWeight(0);
         
         if (keyPressed == true && key != 'e'){
         
