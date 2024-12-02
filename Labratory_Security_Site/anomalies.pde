@@ -1,19 +1,13 @@
-class Anomalies{
+class Anomalies {
 
 
-  
-  
-  
-  public void update(){
-  
-  
-  
-  
-  
+
+
+
+  public void update() {
+    
+    
+    
+    
   }
-
-
-
-
-
 }
