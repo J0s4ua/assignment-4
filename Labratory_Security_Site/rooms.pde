@@ -1,5 +1,5 @@
 class Rooms{ //the rooms shown in the cameras
-  float type;
+  float type; //variable to check which room is loaded
   float x = 0;
   float day = 1;
   float health = 100;
@@ -8,9 +8,10 @@ class Rooms{ //the rooms shown in the cameras
   PImage computer2 = loadImage("computer2.png"); //loads computer warning state (when there is an anomaly in the area)
   PImage dark = loadImage("darkness.png"); //darkness effect around the room
   PImage room1 = loadImage("room.png"); //first room in camera
-  PImage room2 = loadImage("room2.png");
+  PImage room2 = loadImage("room2.png"); //second room in camera
   PImage bullet = loadImage("gun_shot.png");
   PImage bullet2 = loadImage("gun_shot3.png");
+  PImage camera_gui;
   PVector position = new PVector(x,y);
   buttons button2;
   buttons button3;
@@ -84,40 +85,7 @@ class Rooms{ //the rooms shown in the cameras
       if(type == 2){
       
       
-      if (keyPressed == true && key != 'e'){
-        
-        if(position.x <= -800){
-        
-       position.x = -800;
       
-      } else { 
-      
-        if(key == 'd'){
-        
-        position.x = position.x - 4;
-        
-        }
-      
-      }
-      
-      if(position.x < 0){
-        
-       if(key == 'a'){
-        
-        position.x = position.x + 4;
-        
-        }
-      
-      }else { 
-      
-        position.x = 0;
-      
-      }
-      
-      
-        
-      
-      }
       
       background(50);
       fill(70);
@@ -164,7 +132,22 @@ class Rooms{ //the rooms shown in the cameras
     
       
     
-    
+    if(keyPressed == true && key == 'e'){
+        
+        if(flash == true){
+        fill(255,255,255,50);
+        rect(width/2,height/2,width,height);
+        image(bullet2,pmouseX-20,pmouseY-20);
+        image(bullet,mouseX-20,mouseY-20);
+        
+        
+        
+        
+        }
+        
+        
+      
+    }
     
     button2 = new buttons("guide", 350, 350);
     button2.update();
@@ -186,40 +169,7 @@ class Rooms{ //the rooms shown in the cameras
       }
     
     if(type == 3){
-      if (keyPressed == true && key != 'e'){
-        
-        if(position.x <= -800){
-        
-       position.x = -800;
       
-      } else { 
-      
-        if(key == 'd'){
-        
-        position.x = position.x - 4;
-        
-        }
-      
-      }
-      
-      if(position.x < 0){
-        
-       if(key == 'a'){
-        
-        position.x = position.x + 4;
-        
-        }
-      
-      }else { 
-      
-        position.x = 0;
-      
-      }
-      
-      
-        
-      
-      }
       background(50);
       fill(70);
       rect(200,360,400,200);
@@ -317,6 +267,59 @@ class Rooms{ //the rooms shown in the cameras
         if(flash == false){
           flash = true;
         }
+        if (type != 1){
+         
+          PImage camera_gui = loadImage("camera_gui" + ((int)type -1) + ".png");
+            image(camera_gui,0,0);
+          
+          if(keyPressed == true && key == 'e'){
+        
+        if(flash == true){
+        fill(255,255,255,50);
+        rect(width/2,height/2,width,height);
+        image(bullet2,pmouseX-20,pmouseY-20);
+        image(bullet,mouseX-20,mouseY-20);
+        
+        if (keyPressed == true && key != 'e'){
+        
+        if(position.x <= -800){
+        
+       position.x = -800;
+      
+      } else { 
+      
+        if(key == 'd'){
+        
+        position.x = position.x - 4;
+        
+        }
+      
+      }
+      
+      if(position.x < 0){
+        
+       if(key == 'a'){
+        
+        position.x = position.x + 4;
+        
+        }
+      
+      }else { 
+      
+        position.x = 0;
+      
+      }
+      
+      }
+        
+        
+        }
+        
+        
+      
+    }
+          
+          }
     
     if(static_blink == true){
           
@@ -333,13 +336,10 @@ class Rooms{ //the rooms shown in the cameras
             i = 1;
           
           }
-            
-          
-          
-          
         
         
         }
+        
     
     }
     
