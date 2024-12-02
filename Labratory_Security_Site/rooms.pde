@@ -7,7 +7,7 @@ class Rooms{ //the rooms shown in the cameras
   PImage computer = loadImage("computer1.png"); //loads computer neutral state (when there are no anomalies spawned)
   PImage computer2 = loadImage("computer2.png"); //loads computer warning state (when there is an anomaly in the area)
   PImage dark = loadImage("darkness.png"); //darkness effect around the room
-  PImage room1 = loadImage("room.png");
+  PImage room1 = loadImage("room.png"); //first room in camera
   PImage room2 = loadImage("room2.png");
   PImage bullet = loadImage("gun_shot.png");
   PImage bullet2 = loadImage("gun_shot3.png");
@@ -45,6 +45,21 @@ class Rooms{ //the rooms shown in the cameras
   
     if(type == 1){
       
+      //if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240){ //test game over button, comment out if you dont want it there
+        //fill(150);
+        //rect(20,200,42,42);
+        //if(mousePressed == true){
+          //health = 0;
+          
+        //}
+        
+    
+    //} else {
+      
+      //fill(100);
+      //rect(20,200,40,40);
+    //}
+      
       background(50);
       fill(70);
       rect(200,360,400,200);
@@ -61,6 +76,8 @@ class Rooms{ //the rooms shown in the cameras
       
       GUI player_gui = new GUI(health,day);
       player_gui.update();
+       button2 = new buttons("guide", 350, 350);
+    button2.update();
       
     }
       
@@ -97,7 +114,7 @@ class Rooms{ //the rooms shown in the cameras
       
       }
       
-      print(position.x);
+      
         
       
       }
@@ -148,6 +165,10 @@ class Rooms{ //the rooms shown in the cameras
       
     
     
+    
+    button2 = new buttons("guide", 350, 350);
+    button2.update();
+    
     if (mouseX > 0 && mouseX < 40 && mouseY > 0 && mouseY < 40){
         fill(150,0,0);
         rect(42,42,0,0);
@@ -162,8 +183,6 @@ class Rooms{ //the rooms shown in the cameras
         rect(40,40,0,0);
       
       }
-    button2 = new buttons("guide", 350, 350);
-    button2.update();
       }
     
     if(type == 3){
@@ -197,7 +216,7 @@ class Rooms{ //the rooms shown in the cameras
       
       }
       
-      print(position.x);
+      
         
       
       }
