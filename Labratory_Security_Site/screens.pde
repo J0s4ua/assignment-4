@@ -57,7 +57,16 @@ class Screens { //screens such as the game over, guide, etc.
       
       background(0);
       
+      if (time >= 1000) { //loads the time.  If the time gets to 100, add 1 to the day and set the time to 0
+
+
       
+      
+      if(prev_day == day){
+      day++;
+      }
+      
+    }
       fill(255);
       text("You survived " + (int)day + " days! \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to keep going?",30,60);
       health = 100;
@@ -65,6 +74,22 @@ class Screens { //screens such as the game over, guide, etc.
       
     }else {
       room.update();
+      
+      if (time >= 1000) { //loads the time.  If the time gets to 100, add 1 to the day and set the time to 0
+
+
+      
+      time = 1000;
+      if(prev_day == day){
+      day++;
+      }
+      Screen = new Screens(false,false,false,true);
+    } else {
+      prev_day = day;
+      time = time + 0.1; //add 0.1 to the time per tick
+      print((int)time);
+    }
+      
     }
   }
 }

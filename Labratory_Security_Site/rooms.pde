@@ -17,8 +17,7 @@ class Rooms { //the rooms shown in the cameras
   buttons button3;
   boolean guide;
   boolean flash;
-  PImage static1 = loadImage("gun_shot3.png");
-  boolean static_blink = false;
+  
   int i = 1;
   Pages page = new Pages();
   Rooms (int t, int x2, int y2) {
@@ -57,7 +56,7 @@ class Rooms { //the rooms shown in the cameras
         }
       }
 
-      GUI player_gui = new GUI(health, day);
+      GUI player_gui = new GUI();
       player_gui.update();
       button2 = new buttons("guide", 350, 350);
       button2.update();
@@ -294,6 +293,10 @@ class Rooms { //the rooms shown in the cameras
         }
       
     }
+    
+    
+    
+    
 
     if (static_blink == true) {
 
@@ -310,5 +313,7 @@ class Rooms { //the rooms shown in the cameras
         i = 1;
       }
     }
+    
+    
   }
 }

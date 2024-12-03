@@ -1,16 +1,14 @@
-class GUI {
+class GUI { //this class is to load the GUI
 
 
   
   float guiX = 0; //gui horizontal position
   float guiY = 320; //gui vertical position
   PImage phone = loadImage("phone.png"); //loads gui appearance
-  float prev_day;
+  
 
-  GUI(float h, float d) { //loads the health and the day counter
-
-    health = h; //health
-    day = d; //day
+  GUI() { //does nothing
+    
   }
 
 
@@ -34,18 +32,6 @@ class GUI {
     text("day :" + day, guiX + 60, guiY + 70); //there is no maximum amount of days, you have to get through as many as you can.
 
 
-    if (time >= 1000) { //loads the time.  If the time gets to 100, add 1 to the day and set the time to 0
-
-
-      
-      time = 1000;
-      if(prev_day == day){
-      day++;
-      }
-      Screen = new Screens(false,false,false,true);
-    } else {
-      prev_day = day;
-      time = time + 0.1; //add 0.1 to the time per tick
-    }
+    
   }
 }
