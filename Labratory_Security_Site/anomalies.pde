@@ -18,7 +18,7 @@ public class Anomalies {
     if (anomaly_active[1] == true && anomaly_location[1] == 2) { //first anomaly, checks if the anomaly is in the second room
       if (type == 2) { //checks if the room the player is looking in is room no.2
         image(anomaly_84_a1, position1.x + random_position[1], position1.y);
-        if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178 && flash == true) {
+        if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178 && keyPressed == true && key == 'e') {
 
           anomaly_health[1] = anomaly_health[1] - turret_damage;
           print(anomaly_health[1]);
@@ -36,7 +36,7 @@ public class Anomalies {
 
       if (type == 3) {
         image(anomaly_84_a2, position1.x + random_position[1], position1.y);
-        if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178  && flash == true) {
+        if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178  && keyPressed == true && key == 'e') {
 
           anomaly_health[1] = anomaly_health[1] - turret_damage;
           print(anomaly_health[1]);
