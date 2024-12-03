@@ -28,7 +28,7 @@ class buttons {//loads the buttons
         fill(255, 0, 0);
         rect(position2.x, position2.y, button_width + 5, button_height + 5); //creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) { //checks if user clicks while in the button area
-          Screen = new Screens(false, false, false); //closes guide
+          Screen = new Screens(false, false, false, false); //closes guide
         }
       } else {
         fill(100, 0, 0);
@@ -63,7 +63,8 @@ class buttons {//loads the buttons
         fill(255);
         rect(position2.x, position2.y, button_width + 5, button_height + 5);//creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) { //checks if user clicks while in the button area
-          Screen = new Screens(false, false, false);
+          Screen = new Screens(false, false, false, false);
+          time = 0;
           Game_start = true;
           //begins the game
         }
@@ -82,7 +83,7 @@ class buttons {//loads the buttons
         fill(255);
         image(info2, position2.x-25, position2.y-25);//creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) {//checks if user clicks while in the button area
-          Screen = new Screens(false, false, true); //sets the screen to the guide screen
+          Screen = new Screens(false, false, true, false); //sets the screen to the guide screen
         }
       } else {
         fill(120);
@@ -99,7 +100,8 @@ class buttons {//loads the buttons
         fill(255);
         rect(position2.x, position2.y, button_width, button_height);//creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) {//checks if user clicks while in the button area
-          Screen = new Screens(true, false, false); //sets the screen to the main menu screen
+          Screen = new Screens(true, false, false, false); //sets the screen to the main menu screen
+          time = 0;
           Game_start = false;
         }
       } else {

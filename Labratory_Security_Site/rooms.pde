@@ -63,7 +63,7 @@ class Rooms { //the rooms shown in the cameras
       button2.update();
     }
     
-    
+    /* (remove this if you want to try it)
     if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240){ //test game over button, comment out if you dont want it there
       fill(150);
       rect(20,200,42,42);
@@ -78,6 +78,7 @@ class Rooms { //the rooms shown in the cameras
       fill(100);
       rect(20,200,40,40);
       }
+      */
 
     if (type == 2) {
 

@@ -12,7 +12,7 @@ Screens Screen; //sets up the screens
 
 void setup() {
   size(400, 400); //sets the scale that is required
-  Screen = new Screens(true, false, false); //sets the kind of screen that shows
+  Screen = new Screens(true, false, false, false); //sets the kind of screen that shows
   noStroke(); //detail
 }
 
@@ -22,7 +22,7 @@ void draw() {
 
   if (health <= 0) {
 
-    Screen = new Screens(false, true, false); //sets the gameover screen
+    Screen = new Screens(false, true, false, false); //sets the gameover screen
     
   }
 }

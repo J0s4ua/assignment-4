@@ -5,6 +5,7 @@ class Screens { //screens such as the game over, guide, etc.
   buttons button3; //button to go back to the main menu
   boolean main_menu;
   boolean game_over;
+  boolean game_won;
   boolean guide;
   int page_count = 3;
   int page_num = 0;
@@ -12,11 +13,12 @@ class Screens { //screens such as the game over, guide, etc.
   Rooms room = new Rooms(1, 0, 0);
   PImage title = loadImage("labratory_security-site_title.png"); //loads title_screen gui appearance
 
-  Screens(boolean m, boolean g, boolean g2) {
+  Screens(boolean m, boolean g, boolean g2, boolean gw) {
 
     main_menu = m;
     game_over = g;
     guide = g2;
+    game_won = gw;
   }
   public void update() {
 
@@ -44,10 +46,24 @@ class Screens { //screens such as the game over, guide, etc.
       
       fill(255);
       text("You survived : " + (int)day + " days and " + (int)time + " seconds. \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to try again?",30,60);
-      
+      health = 100;
       button3.update();
-      time = 0;
-    } else {
+      
+    } else if (game_won == true) {
+
+      button3 = new buttons("main menu", 200, 350);
+      if (high_score_days < day){high_score_days = day;}
+      if (high_score_time < time){high_score_time = time;}
+      
+      background(0);
+      
+      
+      fill(255);
+      text("You survived " + (int)day + " days! \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to keep going?",30,60);
+      health = 100;
+      button3.update();
+      
+    }else {
       room.update();
     }
   }
