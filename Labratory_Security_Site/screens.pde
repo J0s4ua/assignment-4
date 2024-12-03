@@ -87,7 +87,6 @@ class Screens { //screens such as the game over, guide, etc.
     } else {
       prev_day = day;
       time = time + 0.1; //add 0.1 to the time per tick
-      print((int)time);
     }
       
     }
