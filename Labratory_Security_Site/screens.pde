@@ -2,7 +2,7 @@
 class Screens { //screens such as the game over, guide, etc.
   buttons button; //main menu button to get into the game
   buttons button2; //button to get into the guide
-  buttons button3;
+  buttons button3; //button to go back to the main menu
   boolean main_menu;
   boolean game_over;
   boolean guide;
@@ -32,16 +32,21 @@ class Screens { //screens such as the game over, guide, etc.
       background(0);
       page.update();
       button3.update();
+      
     } else if (game_over == true) {
 
-      button3 = new buttons("exit_guide", 200, 350);
+      button3 = new buttons("game_over", 200, 350);
       if (high_score_days < day){high_score_days = day;}
       if (high_score_time < time){high_score_time = time;}
-      time = 0;
+      
       background(0);
-      page.update();
+      
+      
+      fill(255);
+      text("You survived : " + (int)day + " days and " + (int)time + " seconds. \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to try again?",30,60);
+      
       button3.update();
-      text("You survived : " + day + "days. /n and" + time + "seconds. /n Your highest amount is " + high_score_days + "days /n and " + high_score_time + "/n are you willing to try again?",30,40);
+      time = 0;
     } else {
       room.update();
     }

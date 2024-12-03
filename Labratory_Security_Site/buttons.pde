@@ -8,14 +8,14 @@ class buttons {//loads the buttons
   Screens screen; //sets screens based on the button
   Pages page_turn = new Pages(); //loads the guide pages
   boolean Game_start = false; //checks if the game is started or not (in case certain buttons are only loaded if the game is started)
-  PVector position = new PVector(x, y); //the position of the rooms in the cameras
+  PVector position2 = new PVector(x, y); //the position of the rooms in the cameras
   PImage info = loadImage("info.png"); //information button (unselected)
   PImage info2 = loadImage("info2.png"); //information button (selected)
   buttons(String type, int xpos, int ypos) { //loads inserted variables in the class
 
     button_type = type; //the kind of button that is used
-    position.x = xpos; //sets the horizontal location of the button
-    position.y = ypos; // sets the vertical location of the button
+    position2.x = xpos; //sets the horizontal location of the button
+    position2.y = ypos; // sets the vertical location of the button
   }
 
   public void update() {
@@ -23,16 +23,16 @@ class buttons {//loads the buttons
       button_width = 20; //button width
       button_height = 20; //button height
       rectMode(CENTER); //set rectangle mode
-      if (mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
-        mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)) { //checks if the mouse is in the set bounderies, adding button width/height for collision
+      if (mouseX < (position2.x + button_width/2) && mouseX > (position2.x - button_width/2) &&
+        mouseY < (position2.y + button_height/2) && mouseY > (position2.y - button_height/2)) { //checks if the mouse is in the set bounderies, adding button width/height for collision
         fill(255, 0, 0);
-        rect(position.x, position.y, button_width + 5, button_height + 5); //creates the button but lighter to show that the mouse is in the bounderies
+        rect(position2.x, position2.y, button_width + 5, button_height + 5); //creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) { //checks if user clicks while in the button area
           Screen = new Screens(false, false, false); //closes guide
         }
       } else {
         fill(100, 0, 0);
-        rect(position.x, position.y, button_width, button_height); //creates the button but darker to show that the mouse is not in the bounderies
+        rect(position2.x, position2.y, button_width, button_height); //creates the button but darker to show that the mouse is not in the bounderies
       }
     }
 
@@ -40,16 +40,16 @@ class buttons {//loads the buttons
       button_width = 30; //button width
       button_height = 30; //button height
       rectMode(CENTER); //set rectangle mode
-      if (mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
-        mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)) { //checks if the mouse is in the set bounderies, adding button width/height for collision
+      if (mouseX < (position2.x + button_width/2) && mouseX > (position2.x - button_width/2) &&
+        mouseY < (position2.y + button_height/2) && mouseY > (position2.y - button_height/2)) { //checks if the mouse is in the set bounderies, adding button width/height for collision
         fill(255);
-        rect(position.x, position.y, button_width + 5, button_height + 5); //creates the button but lighter to show that the mouse is in the bounderies
+        rect(position2.x, position2.y, button_width + 5, button_height + 5); //creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) { //checks if user clicks while in the button area
           page_turn.page_check(); //changes the page
         }
       } else {
         fill(100);
-        rect(position.x, position.y, button_width, button_height); //creates the button but darker to show that the mouse is not in the bounderies
+        rect(position2.x, position2.y, button_width, button_height); //creates the button but darker to show that the mouse is not in the bounderies
       }
     }
 
@@ -58,10 +58,10 @@ class buttons {//loads the buttons
       button_height = 40;//button height
       rectMode(CENTER);//set rectangle mode
 
-      if (mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
-        mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)) {//checks if the mouse is in the set bounderies, adding button width/height for collision
+      if (mouseX < (position2.x + button_width/2) && mouseX > (position2.x - button_width/2) &&
+        mouseY < (position2.y + button_height/2) && mouseY > (position2.y - button_height/2)) {//checks if the mouse is in the set bounderies, adding button width/height for collision
         fill(255);
-        rect(position.x, position.y, button_width + 5, button_height + 5);//creates the button but lighter to show that the mouse is in the bounderies
+        rect(position2.x, position2.y, button_width + 5, button_height + 5);//creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) { //checks if user clicks while in the button area
           Screen = new Screens(false, false, false);
           Game_start = true;
@@ -69,7 +69,7 @@ class buttons {//loads the buttons
         }
       } else {
         fill(100);
-        rect(position.x, position.y, button_width, button_height);//creates the button but darker to show that the mouse is not in the bounderies
+        rect(position2.x, position2.y, button_width, button_height);//creates the button but darker to show that the mouse is not in the bounderies
       }
     }
 
@@ -77,33 +77,34 @@ class buttons {//loads the buttons
       button_width = 40;//button width
       button_height = 40; //button height
       rectMode(CENTER);//set rectangle mode
-      if (mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
-        mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)) {//checks if the mouse is in the set bounderies, adding button width/height for collision
+      if (mouseX < (position2.x + button_width/2) && mouseX > (position2.x - button_width/2) &&
+        mouseY < (position2.y + button_height/2) && mouseY > (position2.y - button_height/2)) {//checks if the mouse is in the set bounderies, adding button width/height for collision
         fill(255);
-        image(info2, position.x-25, position.y-25);//creates the button but lighter to show that the mouse is in the bounderies
+        image(info2, position2.x-25, position2.y-25);//creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) {//checks if user clicks while in the button area
           Screen = new Screens(false, false, true); //sets the screen to the guide screen
         }
       } else {
         fill(120);
-        image(info, position.x-20, position.y-20);//creates the button but darker to show that the mouse is not in the bounderies
+        image(info, position2.x-20, position2.y-20);//creates the button but darker to show that the mouse is not in the bounderies
       }
     }
 
-    if (button_type == "game_over") {//checks the type of button
-      button_width = 120;//button width
+    if (button_type == "game_over") {//checks the type of button, in this case its the button to back from the game_over screen to the menu screen
+      button_width = 200;//button width
       button_height = 40; //button height
       rectMode(CENTER);//set rectangle mode
-      if (mouseX < (position.x + button_width/2) && mouseX > (position.x - button_width/2) &&
-        mouseY < (position.y + button_height/2) && mouseY > (position.y - button_height/2)) {//checks if the mouse is in the set bounderies, adding button width/height for collision
+      if (mouseX < (position2.x + button_width/2) && mouseX > (position2.x - button_width/2) &&
+        mouseY < (position2.y + button_height/2) && mouseY > (position2.y - button_height/2)) {//checks if the mouse is in the set bounderies, adding button width/height for collision
         fill(255);
-        rect(button_width, button_height, position.x-25, position.y-25);//creates the button but lighter to show that the mouse is in the bounderies
+        rect(position2.x, position2.y, button_width, button_height);//creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) {//checks if user clicks while in the button area
           Screen = new Screens(true, false, false); //sets the screen to the main menu screen
+          Game_start = false;
         }
       } else {
         fill(120);
-        image(info, position.x-20, position.y-20);//creates the button but darker to show that the mouse is not in the bounderies
+        rect(position2.x, position2.y, button_width, button_height);//creates the button but darker to show that the mouse is not in the bounderies
       }
     }
   }
