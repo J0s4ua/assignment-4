@@ -1,6 +1,8 @@
 public float time; //the time
 public float health = 100; //secutiry health, if it reaches 0, game over
 public int c;
+int x;
+int y;
 public float type; //variable to check which room is loaded
 public float day; //the amount of days survived, anomaly chance counter gets increased per day
 public int turret_damage = 25;
@@ -18,7 +20,7 @@ public boolean[] anomaly_active = new boolean[3];
 public int anomaly_max;
 public int[] anomaly_location = new int[3];
 public int[] anomaly_health = new int[3];
-
+PVector position = new PVector(x, y);
 
 
 

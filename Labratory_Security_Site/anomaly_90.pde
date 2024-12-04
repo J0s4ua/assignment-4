@@ -1,8 +1,8 @@
 public class Anomaly_90 {
   int chance;
   int[] random_position = new int[3];
-  int x;
-  int y;
+  int x = 0;
+  int y = 0;
   PVector position1= new PVector(x, y);
   int prev_time;
   PImage anomaly_90_passive = loadImage("anomaly_90_1.png");
@@ -18,7 +18,30 @@ public class Anomaly_90 {
 
   public void update() {
     
-    
+    if (keyPressed == true) {
+
+      if (position1.x <= -800) {
+
+        position1.x = -800;
+      } else {
+
+        if (key == 'd') {
+
+          position1.x = position1.x - 4;
+        }
+      }
+
+      if (position1.x < 0) {
+
+        if (key == 'a') {
+
+          position1.x = position1.x + 4;
+        }
+      } else {
+
+        position1.x = 0;
+      }
+    }
     
     if (anomaly_active[1] == false) {
 
@@ -53,7 +76,7 @@ public class Anomaly_90 {
           image(anomaly_90_passive, position1.x + random_position[1], position1.y);
         }
         
-        if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178 && keyPressed == true && key == 'e') {
+        if (mouseX > position1.x + random_position[1] + 100 && mouseX < position1.x + random_position[1] + 150 && keyPressed == true && key == 'e') {
 
           anomaly_health[1] = anomaly_health[1] - turret_damage;
           print(anomaly_health[1]);
@@ -75,13 +98,15 @@ public class Anomaly_90 {
         
         }
         
-      if (prev_time + (int)random(10, 30) < (int)time) {
+      
+    }
+    
+    if (prev_time + (int)random(10, 30) < (int)time) {
         static_blink = true;
         anomaly_location[1] = (int)random(1,7);
         random_position[1] = (int)random(-10, 1000);
         prev_time = (int)time;
       }
-    }
     }
     
     i2++;
@@ -102,7 +127,7 @@ public class Anomaly_90 {
             }
             }
         
-        if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178 && keyPressed == true && key == 'e') {
+        if (mouseX > position1.x + random_position[1] + 100 && mouseX < position1.x + random_position[1] + 150 && keyPressed == true && key == 'e') {
 
           anomaly_health[1] = anomaly_health[1] - turret_damage;
           print(anomaly_health[1]);
@@ -132,7 +157,7 @@ public class Anomaly_90 {
       if (type == 1) { //checks if the room the player is looking in is room no.1
         
         if (attacking == false) {
-          image(anomaly_90_passive, 30,position1.y + 200);
+          image(anomaly_90_passive, position1.x ,position1.y + 200);
         }
         
         if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178 && keyPressed == true && key == 'e') {
@@ -179,30 +204,7 @@ public class Anomaly_90 {
     
     }
     
-    if (keyPressed == true) {
-
-      if (position1.x <= -800) {
-
-        position1.x = -800;
-      } else {
-
-        if (key == 'd') {
-
-          position1.x = position1.x + 4;
-        }
-      }
-
-      if (position1.x < 0) {
-
-        if (key == 'a') {
-
-          position1.x = position1.x - 4;
-        }
-      } else {
-
-        position1.x = 0;
-      }
-    }
+    
   
   }
 }

@@ -17,7 +17,7 @@ class Rooms { //the rooms shown in the cameras
   PImage bullet2 = loadImage("gun_shot3.png"); //bullet detail 2
   int i2;
   PImage camera_gui;
-  PVector position = new PVector(x, y);
+  
   buttons button2;
   buttons button3;
   boolean guide;

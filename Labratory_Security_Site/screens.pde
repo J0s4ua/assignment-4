@@ -48,11 +48,11 @@ class Screens { //screens such as the game over, guide, etc.
       
       background(0);
       if (game_won == true){
-        game_over_text = game_lost;
-        image(game_won_screen, 0, 0);
-      } else if (game_over == true){
-        image(game_lost_screen, 0, 0);
         game_over_text = game_win;
+        image(game_lost_screen, 0, 0);
+      } else if (game_over == true){
+        image(game_won_screen, 0, 0);
+        game_over_text = game_lost;
       }
       
       text(game_over_text,30,60);
