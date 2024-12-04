@@ -75,6 +75,7 @@ public class Anomaly_90 {
     } else if (anomaly_health[1] <= 0 && attacking == true) {
 
       anomaly_active[1] = false;
+      chance = (int)random(0, 100);
       attacking = false;
     }
 
@@ -147,16 +148,20 @@ public class Anomaly_90 {
       }
 
       if (attacking == true) {
-        anomaly_90_hostile[i3] = loadImage("anomaly_90_" + (i3) + ".png");
-        image(anomaly_90_hostile[i3], position1.x, position1.y + 200);
+        
 
         if (i3 < 6) {
 
-          i3 = 1;
+          i3 = 2;
+          
         } else {
 
           i3++;
         }
+      
+      
+      anomaly_90_hostile[i3] = loadImage("anomaly_90_" + (i3) + ".png");
+        image(anomaly_90_hostile[i3], position1.x, position1.y + 200);
       }
 
       if (prev_time2 + (int)random(20, 40) < (int)time) {
