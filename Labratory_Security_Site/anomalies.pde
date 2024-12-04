@@ -1,6 +1,7 @@
 public class Anomalies {
   int[] chance = new int[3];
   int[] random_position = new int[3];
+  boolean[] anomaly_attacked = new boolean[3];
   int x;
   int y;
   PVector position1 = new PVector(x, y);
@@ -119,7 +120,7 @@ public class Anomalies {
           anomaly_location[1] = 6;
         } else {
         
-          jumpscare.anomaly84_jumpscare();
+          anomaly_attacked[1] = true;
         
         }
 
@@ -214,5 +215,12 @@ public class Anomalies {
         position1.x = 0;
       }
     }
+    
+    if (anomaly_attacked[1] == true){
+    
+      jumpscare.anomaly84_jumpscare();
+    
+    }
+    
   }
 }

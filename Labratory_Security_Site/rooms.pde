@@ -12,6 +12,7 @@ class Rooms { //the rooms shown in the cameras
   PImage room3 = loadImage("room4.png"); //first room in camera
   PImage room4 = loadImage("room5.png"); //second room in camera
   PImage room5 = loadImage("room6.png"); //second room in camera
+  PImage room6 = loadImage("room8.png"); //second room in camera
   PImage bullet = loadImage("gun_shot.png"); //bullet detail 1
   PImage bullet2 = loadImage("gun_shot3.png"); //bullet detail 2
   int i2;
@@ -114,7 +115,7 @@ class Rooms { //the rooms shown in the cameras
         fill(150);
         rect(20, 200, 42, 42);
         if (mousePressed == true) {
-          type = 2;
+          type = 7;
           static_blink = true;
           mousePressed = false;
         }
@@ -266,7 +267,7 @@ class Rooms { //the rooms shown in the cameras
         rect(380, 200, 42, 42);
         if (mousePressed == true) {
 
-          type = 2;
+          type = 7;
           static_blink = true;
           mousePressed = false;
         }
@@ -281,6 +282,47 @@ class Rooms { //the rooms shown in the cameras
         rect(20, 200, 42, 42);
         if (mousePressed == true) {
           type = 5;
+          static_blink = true;
+          mousePressed = false;
+        }
+      } else {
+
+        fill(100);
+        rect(20, 200, 40, 40);
+      }
+    }
+    
+    if (type == 7) {
+
+      background(50);
+      fill(70);
+      rect(200, 360, 400, 200);
+      image(room6, position.x, y);
+
+      image(dark, 0, 0);
+
+
+
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+        fill(150);
+        rect(380, 200, 42, 42);
+        if (mousePressed == true) {
+
+          type = 2;
+          static_blink = true;
+          mousePressed = false;
+        }
+      } else {
+
+        fill(100);
+        rect(380, 200, 40, 40);
+      }
+
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+        fill(150);
+        rect(20, 200, 42, 42);
+        if (mousePressed == true) {
+          type = 6;
           static_blink = true;
           mousePressed = false;
         }

@@ -11,7 +11,7 @@ class Jumpscare{
     type = 1;
     if(i < 35){
         jumpscare1[i] = loadImage("anomaly_84_jumpscare" + i + ".png");
-        delay(10);
+        delay(50);
         image(jumpscare1[i],0,0);
         i++;
         print("jumpscare frame : " + i + " ");
@@ -21,6 +21,7 @@ class Jumpscare{
       if(i >= 35){
       
         health = 0;
+        anomaly_attacked[1] = false;
       
       }
     
