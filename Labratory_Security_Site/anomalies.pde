@@ -121,6 +121,7 @@ public class Anomalies {
       random_position[1] = (int)random(-10, 1000);
       prev_time = (int)time;
     }
+    }
 
 
     if (anomaly_active[1] == true && anomaly_location[1] == 6) {
@@ -203,6 +204,6 @@ public class Anomalies {
         position1.x = 0;
       }
     }
-  }
+  
   }
 }
