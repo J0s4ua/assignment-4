@@ -13,7 +13,7 @@ int i = 1;
 float high_score_time;
 Screens Screen; //sets up the screens
 float prev_day;
-ArrayList<Anomalies> anomaly_count = new ArrayList<Anomalies>();
+int[] anomaly_count = new int[3];
 boolean[] anomaly_attacked = new boolean[3];
 boolean[] anomaly_active = new boolean[3];
 int anomaly_max;

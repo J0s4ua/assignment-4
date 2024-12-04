@@ -333,11 +333,7 @@ class Rooms { //the rooms shown in the cameras
       }
     }
 
-    anomaly_max = 2 + (int)day;
-  if(i2 < anomaly_max){
-  anomaly_count.add(new Anomalies());
-  i2++;
-  }
+    
     anomalies.update(); //loading the anomalies under the camera GUI
 
 
