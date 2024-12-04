@@ -2,7 +2,7 @@ public class Anomaly_90 {
   int chance;
   int[] random_position = new int[3];
   int x = 0;
-  int y = 0;
+  int y = 200;
   PVector position1= new PVector(x, y);
   int prev_time2;
   PImage anomaly_90_passive = loadImage("anomaly_90_1.png");
@@ -23,10 +23,11 @@ public class Anomaly_90 {
       if (position1.x <= -800) {
 
         position1.x = -800;
+        
       } else if (key == 'd') {
 
         position1.x = position1.x - 4;
-        print("moving");
+        
       }
 
 
@@ -35,7 +36,7 @@ public class Anomaly_90 {
         if (key == 'a') {
 
           position1.x = position1.x + 4;
-          print("moving");
+          
         }
       } else {
 
@@ -48,9 +49,10 @@ public class Anomaly_90 {
       if (cooldown <= 0) {
         chance = (int)random(0, 100);
         cooldown = 10;
+        
         print("anomaly 90 : " + chance + "\n");
       } else {
-
+        attacking = false;
         cooldown = cooldown - (0.1 * (day + 1));
       }
 
@@ -64,17 +66,20 @@ public class Anomaly_90 {
         print("anomaly 90 spawned\n");
         print("anomaly 90 is in room " + anomaly_location[1]);
       }
-    }
-
-
-    if (anomaly_health[1] <= 0 && attacking == false) {
-
+    } else if (anomaly_health[1] <= 0 && attacking == false) {
+      
       attacking = true;
       anomaly_health[1] = 100;
+      random_position[1]+=20;
+      
     } else if (anomaly_health[1] <= 0 && attacking == true) {
 
       anomaly_active[1] = false;
+      attacking = false;
     }
+
+
+    
 
     if (i2 <= 7) {
 
@@ -82,7 +87,8 @@ public class Anomaly_90 {
         if (type == i2) { //checks if the room the player is looking in is room no.2
 
           if (attacking == false) {
-            image(anomaly_90_passive, position1.x + random_position[0], position1.y);
+            image(anomaly_90_passive, position1.x + random_position[1], position1.y);
+            print(position1.x + random_position[1]);
           }
 
 
@@ -90,7 +96,7 @@ public class Anomaly_90 {
 
           if (attacking == true) {
             anomaly_90_hostile[i3] = loadImage("anomaly_90_" + (i3) + ".png");
-            image(anomaly_90_hostile[i3], 0, 0);
+            image(anomaly_90_hostile[i3], position1.x + random_position[1], position1.y);
 
             if (i3 < 7) {
 
@@ -101,15 +107,15 @@ public class Anomaly_90 {
             }
           }
 
-          if (mouseX > position1.x + random_position[0] + 84 && mouseX < position1.x + random_position[0] + 178 && keyPressed == true && key == 'e') {
+          if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178 && keyPressed == true && key == 'e') {
 
-            anomaly_health[0] = anomaly_health[0] - turret_damage;
-            print(anomaly_health[0]);
-          }
+            anomaly_health[1] = anomaly_health[1] - turret_damage;
+            print(anomaly_health[1]);
+          } 
 
 
 
-          if (prev_time2 + (int)random(10, 30) < (int)time) {
+          if (prev_time2 + (int)random(20, 40) < (int)time) {
             static_blink = true;
             anomaly_location[1] = (int)random(1, 7);
             print("anomaly 90 is in room " + anomaly_location[1]);
@@ -142,7 +148,7 @@ public class Anomaly_90 {
 
       if (attacking == true) {
         anomaly_90_hostile[i3] = loadImage("anomaly_90_" + (i3) + ".png");
-        image(anomaly_90_hostile[i3], 0, 0);
+        image(anomaly_90_hostile[i3], position1.x, position1.y + 200);
 
         if (i3 < 6) {
 
@@ -153,7 +159,7 @@ public class Anomaly_90 {
         }
       }
 
-      if (prev_time2 + (int)random(20, 30) < (int)time) {
+      if (prev_time2 + (int)random(20, 40) < (int)time) {
         static_blink = true;
         anomaly_location[1] = (int)random(1, 7);
         print("anomaly 90 is in room " + anomaly_location[1]);
