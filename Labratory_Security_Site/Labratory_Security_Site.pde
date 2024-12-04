@@ -3,8 +3,7 @@ public float health = 100; //secutiry health, if it reaches 0, game over
 float type; //variable to check which room is loaded
 float day; //the amount of days survived, anomaly chance counter gets increased per day
 boolean[] anomaly_active = new boolean[3];
-int[] anomaly_count = new int[3];
-int[] anomaly_max = new int[3];
+int anomaly_max;
 int[] anomaly_location = new int[3];
 int[] anomaly_health = new int[3];
 int turret_damage = 25;
@@ -16,7 +15,7 @@ int i = 1;
 float high_score_time;
 Screens Screen; //sets up the screens
 float prev_day;
-
+ArrayList<Anomalies> anomaly_count = new ArrayList<Anomalies>();
 
 void setup() {
   size(400, 400); //sets the scale that is required
@@ -32,7 +31,8 @@ void setup() {
 }
 
 void draw() {
-
+  
+  
 
   Screen.update(); //loads the main menu screen
 

@@ -18,7 +18,7 @@ public class Anomalies {
   public void update() {
 
 
-
+  
     if (anomaly_active[1] == true && anomaly_location[1] == 2) { //first anomaly, checks if the anomaly is in the second room
       if (type == 2) { //checks if the room the player is looking in is room no.2
         appearance = (int)(random(1, 2) + 0.5);
@@ -165,7 +165,7 @@ public class Anomalies {
         print(chance[1]);
       } else {
 
-        cooldown = cooldown - 0.1 * (day + 1);
+        cooldown = cooldown - (0.1 * (day + 1));
       }
 
       if ((int)chance[1] > 50 && (int)chance[1] < 60) {
@@ -174,7 +174,7 @@ public class Anomalies {
         anomaly_location[1] = 2;
         anomaly_active[1] = true;
         random_position[1] = (int)random(-10, 1000);
-        anomaly_count[1]++;
+        
         anomaly_health[1] = 100;
         print("anomaly spawned\n");
       }

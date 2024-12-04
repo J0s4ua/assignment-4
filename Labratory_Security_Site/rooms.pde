@@ -14,7 +14,7 @@ class Rooms { //the rooms shown in the cameras
   PImage room5 = loadImage("room6.png"); //second room in camera
   PImage bullet = loadImage("gun_shot.png"); //bullet detail 1
   PImage bullet2 = loadImage("gun_shot3.png"); //bullet detail 2
-  
+  int i2;
   PImage camera_gui;
   PVector position = new PVector(x, y);
   buttons button2;
@@ -291,7 +291,11 @@ class Rooms { //the rooms shown in the cameras
       }
     }
 
-
+    anomaly_max = 2 + (int)day;
+  if(i2 < anomaly_max){
+  anomaly_count.add(new Anomalies());
+  i2++;
+  }
     anomalies.update(); //loading the anomalies under the camera GUI
 
 

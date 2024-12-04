@@ -86,7 +86,9 @@ class Screens { //screens such as the game over, guide, etc.
       Screen = new Screens(false,false,false,true);
     } else {
       prev_day = day;
+      if(health > 0){
       time = time + 0.1; //add 0.1 to the time per tick
+      }
     }
       
     }
