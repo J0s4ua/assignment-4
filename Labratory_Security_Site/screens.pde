@@ -3,8 +3,8 @@ class Screens { //screens such as the game over, guide, etc.
   buttons button; //main menu button to get into the game
   buttons button2; //button to get into the guide
   buttons button3; //button to go back to the main menu
-  boolean main_menu;
-  boolean game_over;
+  boolean main_menu; //checks if the screen is the main menu screen
+  boolean game_over; //checks if the screen 
   boolean game_won;
   boolean guide;
   int page_count = 3;
@@ -12,8 +12,8 @@ class Screens { //screens such as the game over, guide, etc.
   Pages page = new Pages();
   Rooms room = new Rooms(1, 0, 0);
   PImage title = loadImage("labratory_security-site_title.png"); //loads title_screen gui appearance
-   PImage game_won_screen = loadImage("win_lose_screens1.png"); //loads "ypu survived" screen appearance
-   PImage game_lost_screen = loadImage("win_lose_screens2.png"); //loads "ypu survived" screen appearance
+   PImage game_won_screen = loadImage("win_lose_screens1.png"); //loads "you survived" screen appearance
+   PImage game_lost_screen = loadImage("win_lose_screens2.png"); //loads "you died" screen appearance
   String game_win = "You survived " + (int)day + " days! \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to keep going?";
   String game_lost = "You survived : " + (int)day + " days and " + (int)time + " seconds. \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to try again?";
   String game_over_text = "what are you doing here?";

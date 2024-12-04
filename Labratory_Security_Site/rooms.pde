@@ -15,58 +15,58 @@ class Rooms { //the rooms shown in the cameras
   PImage room6 = loadImage("room8.png"); //second room in camera
   PImage bullet = loadImage("gun_shot.png"); //bullet detail 1
   PImage bullet2 = loadImage("gun_shot3.png"); //bullet detail 2
-  int i2;
-  PImage camera_gui;
+  int i2; //extra loop 
+  PImage camera_gui; //loads the camera GUI
   
-  buttons button2;
-  buttons button3;
-  boolean guide;
-  Anomalies anomalies = new Anomalies();
-  Anomaly_90 anomaly_90 = new Anomaly_90();
-  int i = 1;
-  Pages page = new Pages();
-  Rooms (int t, int x2, int y2) {
+  buttons button2; //loads one of the buttons
+  buttons button3; //loads one of the buttons
+  boolean guide; //checks if the guide is open or closed
+  Anomalies anomalies = new Anomalies(); //loads the first anomaly
+  Anomaly_90 anomaly_90 = new Anomaly_90(); //loads the second anomaly
+  int i = 1; //used for loops
+  Pages page = new Pages(); //loads the guide pages
+  Rooms (int t, int x2, int y2) { //imports variables from outside the class
 
-    type = t;
-    position.x = x2;
-    position.y = y2;
+    type = t; //type of room
+    position.x = x2; //room position (horizontal)
+    position.y = y2; //room position (vertical)
   }
 
   public void update() {
 
 
 
-    if (guide == true) {
+    if (guide == true) { //if the guide is open
 
-      button3 = new buttons("exit guide", 30, 30);
+      button3 = new buttons("exit guide", 30, 30); //load the button to leave the guide
       background(0);
-      page.update();
-      button3.update();
+      page.update(); //updates the pages
+      button3.update(); //updates the button (checks for collision)
     }
 
-    if (type == 1) {
+    if (type == 1) { //checks if the room type is 1, it will load the security room (that you are in)
 
 
       background(50);
       fill(70);
-      rect(200, 360, 400, 200);
-      image(computer, 0, 50);
+      rect(200, 360, 400, 200); //loads the floor (that you can barely see)
+      image(computer, 0, 50); //loads the computer that allows you to look through the cameras
 
-      image(dark, 0, 0);
-      if (mouseX > 130 && mouseX < 270 && mouseY > 120 && mouseY < 240) {
-        if (mousePressed == true) {
-          static_blink = true;
-          type = 2;
+      image(dark, 0, 0); //darkness effect
+      if (mouseX > 130 && mouseX < 270 && mouseY > 120 && mouseY < 240) { //checks if the player clicked in a specific area
+        if (mousePressed == true) { //checks if the player clicked
+          static_blink = true; //loads the static effect
+          type = 2; //sets the room to the second room
         }
       }
 
-      GUI player_gui = new GUI();
-      player_gui.update();
-      button2 = new buttons("guide", 350, 350);
-      button2.update();
+      GUI player_gui = new GUI(); //loads the player gui
+      player_gui.update(); //updates the state of the player gui
+      button2 = new buttons("guide", 350, 350); //loads the button to open the guide
+      button2.update(); //updates the state of the button
     }
 
-    /* (remove this if you want to try it)
+    /* <--- (remove this if you want to try it)
      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240){ //test game over button, comment out if you dont want it there
      fill(150);
      rect(20,200,42,42);
@@ -81,9 +81,9 @@ class Rooms { //the rooms shown in the cameras
      fill(100);
      rect(20,200,40,40);
      }
-     */
+     (remove this if you want to try it)  --> */
 
-    if (type == 2) {
+    if (type == 2) {//it checks for the first room. If you are looking at that room, it will load the room and set up the buttons to go through the other rooms. Anomalies will use this to move through the rooms.
 
 
 
@@ -91,11 +91,11 @@ class Rooms { //the rooms shown in the cameras
       background(50);
       fill(70);
       rect(200, 360, 400, 200);
-      image(room1, position.x, y);
+      image(room1, position.x, y); //draws the first room
 
-      image(dark, 0, 0);
+      image(dark, 0, 0); //loads the darkness effect
 
-      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(380, 200, 42, 42);
         if (mousePressed == true) {
@@ -111,7 +111,7 @@ class Rooms { //the rooms shown in the cameras
 
 
 
-      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(20, 200, 42, 42);
         if (mousePressed == true) {
@@ -128,7 +128,7 @@ class Rooms { //the rooms shown in the cameras
 
 
 
-    if (type == 3) {
+    if (type == 3) {{//it checks for the second room.
 
       background(50);
       fill(70);
@@ -139,7 +139,7 @@ class Rooms { //the rooms shown in the cameras
 
 
 
-      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(380, 200, 42, 42);
         if (mousePressed == true) {
@@ -154,7 +154,7 @@ class Rooms { //the rooms shown in the cameras
         rect(380, 200, 40, 40);
       }
 
-      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(20, 200, 42, 42);
         if (mousePressed == true) {
@@ -169,7 +169,7 @@ class Rooms { //the rooms shown in the cameras
       }
     }
 
-    if (type == 4) {
+    if (type == 4) { {//it checks for the third room.
 
       background(50);
       fill(70);
@@ -180,7 +180,7 @@ class Rooms { //the rooms shown in the cameras
 
 
 
-      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(380, 200, 42, 42);
         if (mousePressed == true) {
@@ -195,7 +195,7 @@ class Rooms { //the rooms shown in the cameras
         rect(380, 200, 40, 40);
       }
 
-      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(20, 200, 42, 42);
         if (mousePressed == true) {
@@ -210,7 +210,7 @@ class Rooms { //the rooms shown in the cameras
       }
     }
 
-    if (type == 5) {
+    if (type == 5) {//it checks for the fourth room. Anomalies go back to this room when your health is low enough
 
       background(50);
       fill(70);
@@ -221,7 +221,7 @@ class Rooms { //the rooms shown in the cameras
 
 
 
-      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(380, 200, 42, 42);
         if (mousePressed == true) {
@@ -236,7 +236,7 @@ class Rooms { //the rooms shown in the cameras
         rect(380, 200, 40, 40);
       }
 
-      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(20, 200, 42, 42);
         if (mousePressed == true) {
@@ -251,7 +251,7 @@ class Rooms { //the rooms shown in the cameras
       }
     }
 
-    if (type == 6) {
+    if (type == 6) {//it checks for the generator room. If anomalies enter this area, they will damage the generator
 
       background(50);
       fill(70);
@@ -262,7 +262,7 @@ class Rooms { //the rooms shown in the cameras
 
 
 
-      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(380, 200, 42, 42);
         if (mousePressed == true) {
@@ -277,7 +277,7 @@ class Rooms { //the rooms shown in the cameras
         rect(380, 200, 40, 40);
       }
 
-      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(20, 200, 42, 42);
         if (mousePressed == true) {
@@ -292,7 +292,7 @@ class Rooms { //the rooms shown in the cameras
       }
     }
     
-    if (type == 7) {
+    if (type == 7) { //it checks for the last room. The holding area for anomaly 90 which currently does nothing to the player, simply only distracts the player
 
       background(50);
       fill(70);
@@ -303,7 +303,7 @@ class Rooms { //the rooms shown in the cameras
 
 
 
-      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(380, 200, 42, 42);
         if (mousePressed == true) {
@@ -318,7 +318,7 @@ class Rooms { //the rooms shown in the cameras
         rect(380, 200, 40, 40);
       }
 
-      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {//checks if the player clicked in a specific area
         fill(150);
         rect(20, 200, 42, 42);
         if (mousePressed == true) {
@@ -338,7 +338,7 @@ class Rooms { //the rooms shown in the cameras
     anomaly_90.update(); //loading the anomalies under the camera GUI
 
 
-    if (type != 1) {
+    if (type != 1) { //checks if the player is in the cameras. This part of the code loads the gui of the game cameras.
 
 
       PImage camera_gui = loadImage("camera_gui" + ((int)type -1) + ".png");
@@ -372,7 +372,7 @@ class Rooms { //the rooms shown in the cameras
         }
       }
 
-      if (keyPressed == true && key != 'e') {
+      if (keyPressed == true && key != 'e') { //this loads the 
 
         if (position.x <= -800) {
 

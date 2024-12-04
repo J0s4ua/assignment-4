@@ -8,15 +8,15 @@ class Pages { //the enemy guide pages
   }
   public void page_check() { //unused
 
-    if (pagenum == 0) { //moves the pages around
-      pagenum = 2;
+    if (pagenum == 0) { //moves the pages in the guide around, keeps it from breaking
+      pagenum = 2; //maximum pages
     } else {
 
-      pagenum--;
+      pagenum--; //minimum pages
     }
   }
 
-  public void update() { //loads the pages
+  public void update() { //loads the pages in the guide
 
     page_1[0] = loadImage("anomalies1.png");
 
@@ -32,7 +32,7 @@ class Pages { //the enemy guide pages
       button.update(); //updates the button state
     }
 
-    if (pagenum == 1) { //loads second page
+    if (pagenum == 1) { //loads second page (scrapped)
       page_1[1] = loadImage("anomalies2.png");
       background(0);
       button = new buttons("prev page", 30, 380); //loads the button to get to the previous page
@@ -44,7 +44,7 @@ class Pages { //the enemy guide pages
       button.update(); //updates the button state
     }
 
-    if (pagenum == 2) { //loads third page
+    if (pagenum == 2) { //loads third page (scrapped)
       page_1[2] = loadImage("anomalies1.png");
       background(0);
       button = new buttons("prev page", 30, 380); //loads the button to get to the previous page
