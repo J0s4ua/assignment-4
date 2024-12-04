@@ -166,7 +166,7 @@ public class Anomalies {
         cooldown = cooldown - (0.1 * (day + 1));
       }
 
-      if ((int)chance[0] > 50 && (int)chance[0] < 60) {
+      if ((int)chance[0] > 40 && (int)chance[0] < 70) {
 
         prev_time = (int)time;
         anomaly_location[0] = 2;

@@ -2,7 +2,7 @@ public float time; //the time
 public float health = 100; //secutiry health, if it reaches 0, game over
 public int c;
 public float type; //variable to check which room is loaded
-public float day; //the amount of days survived, anomaly chance counter gets increased per day
+public float day = 5; //the amount of days survived, anomaly chance counter gets increased per day
 public int turret_damage = 25;
 public float high_score_days;
 public PImage static1;
