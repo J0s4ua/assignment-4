@@ -64,10 +64,8 @@ class buttons {//loads the buttons
         rect(position2.x, position2.y, button_width + 5, button_height + 5);//creates the button but lighter to show that the mouse is in the bounderies
         if (mousePressed == true) { //checks if user clicks while in the button area
           c = c + (int)day + 1;
-          anomaly_attacked = new boolean[c];
-          anomaly_active = new boolean[c];
-          anomaly_location = new int[c];
-          anomaly_health = new int[c];
+          anomaly_active[0] = false;
+          health = 100;
           Screen = new Screens(false, false, false, false);
           time = 0;
           Game_start = true;
