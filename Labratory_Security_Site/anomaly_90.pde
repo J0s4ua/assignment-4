@@ -23,13 +23,12 @@ public class Anomaly_90 {
       if (position1.x <= -800) {
 
         position1.x = -800;
-        
       } else if (key == 'd') {
 
-          position1.x = position1.x - 4;
-          print("moving");
-        }
-      
+        position1.x = position1.x - 4;
+        print("moving");
+      }
+
 
       if (position1.x < 0) {
 
@@ -68,22 +67,25 @@ public class Anomaly_90 {
     }
 
 
+    if (anomaly_health[1] <= 0 && attacking == false) {
 
-    if (i2 < 7) {
+      attacking = true;
+      anomaly_health[1] = 100;
+    } else if (anomaly_health[1] <= 0 && attacking == true) {
+
+      anomaly_active[1] = false;
+    }
+
+    if (i2 <= 7) {
 
       if (anomaly_active[1] == true && anomaly_location[1] == i2) { //first anomaly, checks if the anomaly is in the second room
         if (type == i2) { //checks if the room the player is looking in is room no.2
 
           if (attacking == false) {
-            print(position1.x + random_position[1]);
-            image(anomaly_90_passive, position1.x + random_position[1], position1.y);
+            image(anomaly_90_passive, position1.x + random_position[0], position1.y);
           }
 
-          if (mouseX > position1.x + random_position[1] + 100 && mouseX < position1.x + random_position[1] + 150 && keyPressed == true && key == 'e') {
 
-            anomaly_health[1] = anomaly_health[1] - turret_damage;
-            print(anomaly_health[1]);
-          }
 
 
           if (attacking == true) {
@@ -99,6 +101,12 @@ public class Anomaly_90 {
             }
           }
 
+          if (mouseX > position1.x + random_position[0] + 84 && mouseX < position1.x + random_position[0] + 178 && keyPressed == true && key == 'e') {
+
+            anomaly_health[0] = anomaly_health[0] - turret_damage;
+            print(anomaly_health[0]);
+          }
+
 
 
           if (prev_time2 + (int)random(10, 30) < (int)time) {
@@ -110,16 +118,13 @@ public class Anomaly_90 {
           }
         }
       }
-      if(i2 < 7){
+      if (i2 < 7) {
         i2++;
       } else {
-      
+
         i2 = 2;
-      
       }
     }
-
-
 
     if (anomaly_active[1] == true && anomaly_location[1] == 1) { //first anomaly, checks if the anomaly is in the second room
       if (type == 1) { //checks if the room the player is looking in is room no.1
@@ -155,15 +160,6 @@ public class Anomaly_90 {
         random_position[1] = (int)random(-10, 1000);
         prev_time2 = (int)time;
       }
-    }
-
-    if (anomaly_health[1] <= 0 && attacking == false) {
-
-      attacking = true;
-      anomaly_health[1] = 100;
-    } else if (anomaly_health[1] <= 0 && attacking == true) {
-
-      anomaly_active[1] = false;
     }
   }
 }
