@@ -1,12 +1,6 @@
 public class Anomalies {
   int[] chance = new int[3];
   int[] random_position = new int[3];
-  int[] anomaly_count = new int[3];
-  boolean[] anomaly_attacked = new boolean[3];
-  boolean[] anomaly_active = new boolean[3];
-  int anomaly_max;
-  int[] anomaly_location = new int[3];
-  int[] anomaly_health = new int[3];
   int x;
   int y;
   PVector position1 = new PVector(x, y);
