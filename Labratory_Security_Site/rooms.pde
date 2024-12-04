@@ -22,7 +22,7 @@ class Rooms { //the rooms shown in the cameras
   buttons button3;
   boolean guide;
   Anomalies anomalies = new Anomalies();
-  
+  Anomaly_90 anomaly_90 = new Anomaly_90();
   int i = 1;
   Pages page = new Pages();
   Rooms (int t, int x2, int y2) {
@@ -335,6 +335,7 @@ class Rooms { //the rooms shown in the cameras
 
     
     anomalies.update(); //loading the anomalies under the camera GUI
+    anomaly_90.update(); //loading the anomalies under the camera GUI
 
 
     if (type != 1) {

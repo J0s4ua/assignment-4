@@ -22,6 +22,7 @@ class Jumpscare{
       
         health = 0;
         anomaly_attacked[1] = false;
+        anomaly_active[1] = false;
       
       }
     

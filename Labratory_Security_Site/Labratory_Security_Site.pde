@@ -3,7 +3,6 @@ public float health = 100; //secutiry health, if it reaches 0, game over
 public int c;
 public float type; //variable to check which room is loaded
 public float day; //the amount of days survived, anomaly chance counter gets increased per day
-
 public int turret_damage = 25;
 public float high_score_days;
 public PImage static1;
@@ -20,12 +19,18 @@ public int anomaly_max;
 public int[] anomaly_location = new int[3];
 public int[] anomaly_health = new int[3];
 
+
+
+
 void setup() {
   size(400, 400); //sets the scale that is required
+  frameRate(60);
+  for (int i = 0; i < anomaly_active.length; i++) {
+      anomaly_active[i] = false;
+    }
   Screen = new Screens(true, false, false, false); //sets the kind of screen that shows
   
   noStroke(); //detail
-  
   
 }
 

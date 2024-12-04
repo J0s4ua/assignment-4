@@ -12,6 +12,11 @@ class Screens { //screens such as the game over, guide, etc.
   Pages page = new Pages();
   Rooms room = new Rooms(1, 0, 0);
   PImage title = loadImage("labratory_security-site_title.png"); //loads title_screen gui appearance
+   PImage game_won_screen = loadImage("win_lose_screens1.png"); //loads "ypu survived" screen appearance
+   PImage game_lost_screen = loadImage("win_lose_screens2.png"); //loads "ypu survived" screen appearance
+  String game_win = "You survived " + (int)day + " days! \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to keep going?";
+  String game_lost = "You survived : " + (int)day + " days and " + (int)time + " seconds. \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to try again?";
+  String game_over_text = "what are you doing here?";
 
   Screens(boolean m, boolean g, boolean g2, boolean gw) {
 
@@ -35,17 +40,25 @@ class Screens { //screens such as the game over, guide, etc.
       page.update();
       button3.update();
       
-    } else if (game_over == true) {
+    } else if (game_over == true || game_won == true) {
 
       button3 = new buttons("game_over", 200, 350);
       if (high_score_days < day){high_score_days = day;}
       if (high_score_time < time){high_score_time = time;}
       
       background(0);
+      if (game_won == true){
+        game_over_text = game_lost;
+        image(game_won_screen, 0, 0);
+      } else if (game_over == true){
+        image(game_lost_screen, 0, 0);
+        game_over_text = game_win;
+      }
       
+      text(game_over_text,30,60);
       
       fill(255);
-      text("You survived : " + (int)day + " days and " + (int)time + " seconds. \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to try again?",30,60);
+      
       health = 100;
       button3.update();
       
@@ -68,7 +81,7 @@ class Screens { //screens such as the game over, guide, etc.
       
     }
       fill(255);
-      text("You survived " + (int)day + " days! \n \n Your highest amount is " + (int)high_score_days + " days \n \nand " + (int)high_score_time + " seconds.\n \nAre you willing to keep going?",30,60);
+      
       health = 100;
       button3.update();
       
