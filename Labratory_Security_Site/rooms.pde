@@ -14,6 +14,7 @@ class Rooms { //the rooms shown in the cameras
   PImage room5 = loadImage("room6.png"); //second room in camera
   PImage bullet = loadImage("gun_shot.png"); //bullet detail 1
   PImage bullet2 = loadImage("gun_shot3.png"); //bullet detail 2
+  
   PImage camera_gui;
   PVector position = new PVector(x, y);
   buttons button2;
@@ -302,7 +303,14 @@ class Rooms { //the rooms shown in the cameras
 
       button2 = new buttons("guide", 350, 350);
       button2.update();
-
+      
+      noFill();
+          stroke(0, 255, 255);
+          strokeWeight(2);
+          arc(mouseX, mouseY, 20, 20, 0, PI*2);
+          line(mouseX-20, mouseY, mouseX+20, mouseY);
+          line(mouseX, mouseY-20, mouseX, mouseY+20);
+          strokeWeight(0);
 
       if (keyPressed == true && key == 'e') {
 
@@ -310,16 +318,10 @@ class Rooms { //the rooms shown in the cameras
         if (flash == true) {
           fill(255, 255, 255, 50);
           rect(width/2, height/2, width, height);
-          image(bullet2, pmouseX-20, pmouseY-20);
-          image(bullet, mouseX-20, mouseY-20);
+          image(bullet2, pmouseX-20 + (random(-10, 10)), pmouseY-20 + (random(-10, 10)));
+          image(bullet, mouseX-20 + (random(-10, 10)), mouseY-20 + (random(-10, 10)));
 
-          noFill();
-          stroke(0, 255, 255);
-          strokeWeight(2);
-          arc(mouseX, mouseY, 20, 20, 0, PI*2);
-          line(mouseX-20, mouseY, mouseX+20, mouseY);
-          line(mouseX, mouseY-20, mouseX, mouseY+20);
-          strokeWeight(0);
+          
           flash = false;
         } else {
 

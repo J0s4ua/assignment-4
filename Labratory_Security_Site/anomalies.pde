@@ -8,14 +8,16 @@ public class Anomalies {
   PImage anomaly_84_a1 = loadImage("anomaly_84.png");
   PImage anomaly_84_a2 = loadImage("anomaly_85.png");
   int appearance;
-  
+  PImage bullet3 = loadImage("hit_effect.png"); //bullet detail 2
+  float cooldown = 1;
+  Jumpscare jumpscare = new Jumpscare(); //sets the kind of screen that shows
 
   Anomalies() {
   }
 
   public void update() {
 
-    
+
 
     if (anomaly_active[1] == true && anomaly_location[1] == 2) { //first anomaly, checks if the anomaly is in the second room
       if (type == 2) { //checks if the room the player is looking in is room no.2
@@ -78,15 +80,15 @@ public class Anomalies {
         if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178  && keyPressed == true && key == 'e') {
 
           anomaly_health[1] = anomaly_health[1] - turret_damage;
-          print(anomaly_health[1]);
+          image(bullet3, mouseX-20 + (random(-10, 10)), mouseY-20 + (random(-10, 10)));
         }
       }
       if (prev_time + (int)random(30, 60) + 30 < time) {
 
         static_blink = true;
-        
+
         anomaly_location[1] = 5;
-        
+
         random_position[1] = (int)random(-10, 1000);
         prev_time = (int)time;
       }
@@ -107,20 +109,23 @@ public class Anomalies {
         if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178  && keyPressed == true && key == 'e') {
 
           anomaly_health[1] = anomaly_health[1] - turret_damage;
-          print(anomaly_health[1]);
         }
       }
 
       if (prev_time + (int)random(30, 60) + 30 < time) {
 
         static_blink = true;
-        if (health > 1) {
+        if (health > 10) {
           anomaly_location[1] = 6;
+        } else {
+        
+          jumpscare.anomaly84_jumpscare();
+        
         }
 
-      random_position[1] = (int)random(-10, 1000);
-      prev_time = (int)time;
-    }
+        random_position[1] = (int)random(-10, 1000);
+        prev_time = (int)time;
+      }
     }
 
 
@@ -138,25 +143,30 @@ public class Anomalies {
         if (mouseX > position1.x + random_position[1] + 84 && mouseX < position1.x + random_position[1] + 178  && keyPressed == true && key == 'e') {
 
           anomaly_health[1] = anomaly_health[1] - turret_damage;
-          print(anomaly_health[1]);
         }
       }
-      if (prev_time + (int)random(30, 60) + 30 < time) {
-        if (health + 10 > 1) {
+      if (prev_time + (int)random(10,30) < time) {
+        if (health - 10 > 1) {
           health = health - 10;
         } else {
 
           anomaly_location[1] = 5;
         }
-        random_position[1] = (int)random(-10, 1000);
+        random_position[1] = (int)random(-10, 50);
         prev_time = (int)time;
       }
     }
 
     if (anomaly_active[1] == false) {
 
-      chance[1] = (int)random(0, 100);
-      print(chance[1]);
+      if (cooldown <= 0) {
+        chance[1] = (int)random(0, 100);
+        cooldown = 10;
+        print(chance[1]);
+      } else {
+
+        cooldown = cooldown - 0.1 * (day + 1);
+      }
 
       if ((int)chance[1] > 50 && (int)chance[1] < 60) {
 
@@ -166,14 +176,14 @@ public class Anomalies {
         random_position[1] = (int)random(-10, 1000);
         anomaly_count[1]++;
         anomaly_health[1] = 100;
-        print("anomaly spawned");
+        print("anomaly spawned\n");
       }
     }
 
     for (int i = 0; i < anomaly_health.length; i++) {
       if (anomaly_active[i] == true) {
         if (anomaly_health[i] <= 0) {
-
+          chance[1] = (int)random(0, 100);
           static_blink = true;
           anomaly_active[i] = false;
         }
@@ -204,6 +214,5 @@ public class Anomalies {
         position1.x = 0;
       }
     }
-  
   }
 }
