@@ -21,6 +21,7 @@ float prev_day;
 void setup() {
   size(400, 400); //sets the scale that is required
   Screen = new Screens(true, false, false, false); //sets the kind of screen that shows
+  anomaly_active[1] = false;
   noStroke(); //detail
   for (int i = 0; i < anomaly_health.length; i++) {
 

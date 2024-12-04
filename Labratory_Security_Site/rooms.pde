@@ -9,6 +9,9 @@ class Rooms { //the rooms shown in the cameras
   PImage dark = loadImage("darkness.png"); //darkness effect around the room
   PImage room1 = loadImage("room.png"); //first room in camera
   PImage room2 = loadImage("room2.png"); //second room in camera
+  PImage room3 = loadImage("room4.png"); //first room in camera
+  PImage room4 = loadImage("room5.png"); //second room in camera
+  PImage room5 = loadImage("room6.png"); //second room in camera
   PImage bullet = loadImage("gun_shot.png"); //bullet detail 1
   PImage bullet2 = loadImage("gun_shot3.png"); //bullet detail 2
   PImage camera_gui;
@@ -16,8 +19,8 @@ class Rooms { //the rooms shown in the cameras
   buttons button2;
   buttons button3;
   boolean guide;
-
   Anomalies anomalies = new Anomalies();
+  
   int i = 1;
   Pages page = new Pages();
   Rooms (int t, int x2, int y2) {
@@ -40,7 +43,6 @@ class Rooms { //the rooms shown in the cameras
     }
 
     if (type == 1) {
-
 
 
       background(50);
@@ -120,12 +122,6 @@ class Rooms { //the rooms shown in the cameras
         fill(100);
         rect(20, 200, 40, 40);
       }
-
-
-
-
-
-      
     }
 
 
@@ -141,15 +137,12 @@ class Rooms { //the rooms shown in the cameras
 
 
 
-
-      
-
       if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
         fill(150);
         rect(380, 200, 42, 42);
         if (mousePressed == true) {
 
-          type = 3;
+          type = 4;
           static_blink = true;
           mousePressed = false;
         }
@@ -174,8 +167,131 @@ class Rooms { //the rooms shown in the cameras
       }
     }
 
-    anomalies.update(); //loading the anomalies under the camera GUI
+    if (type == 4) {
 
+      background(50);
+      fill(70);
+      rect(200, 360, 400, 200);
+      image(room3, position.x, y);
+
+      image(dark, 0, 0);
+
+
+
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+        fill(150);
+        rect(380, 200, 42, 42);
+        if (mousePressed == true) {
+
+          type = 5;
+          static_blink = true;
+          mousePressed = false;
+        }
+      } else {
+
+        fill(100);
+        rect(380, 200, 40, 40);
+      }
+
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+        fill(150);
+        rect(20, 200, 42, 42);
+        if (mousePressed == true) {
+          type = 3;
+          static_blink = true;
+          mousePressed = false;
+        }
+      } else {
+
+        fill(100);
+        rect(20, 200, 40, 40);
+      }
+    }
+
+    if (type == 5) {
+
+      background(50);
+      fill(70);
+      rect(200, 360, 400, 200);
+      image(room4, position.x, y);
+
+      image(dark, 0, 0);
+
+
+
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+        fill(150);
+        rect(380, 200, 42, 42);
+        if (mousePressed == true) {
+
+          type = 6;
+          static_blink = true;
+          mousePressed = false;
+        }
+      } else {
+
+        fill(100);
+        rect(380, 200, 40, 40);
+      }
+
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+        fill(150);
+        rect(20, 200, 42, 42);
+        if (mousePressed == true) {
+          type = 4;
+          static_blink = true;
+          mousePressed = false;
+        }
+      } else {
+
+        fill(100);
+        rect(20, 200, 40, 40);
+      }
+    }
+
+    if (type == 6) {
+
+      background(50);
+      fill(70);
+      rect(200, 360, 400, 200);
+      image(room5, position.x, y);
+
+      image(dark, 0, 0);
+
+
+
+      if (mouseX > 360 && mouseX < 400 && mouseY > 160 && mouseY < 240) {
+        fill(150);
+        rect(380, 200, 42, 42);
+        if (mousePressed == true) {
+
+          type = 2;
+          static_blink = true;
+          mousePressed = false;
+        }
+      } else {
+
+        fill(100);
+        rect(380, 200, 40, 40);
+      }
+
+      if (mouseX > 0 && mouseX < 40 && mouseY > 180 && mouseY < 240) {
+        fill(150);
+        rect(20, 200, 42, 42);
+        if (mousePressed == true) {
+          type = 5;
+          static_blink = true;
+          mousePressed = false;
+        }
+      } else {
+
+        fill(100);
+        rect(20, 200, 40, 40);
+      }
+    }
+
+
+    anomalies.update(); //loading the anomalies under the camera GUI
 
 
     if (type != 1) {
@@ -205,10 +321,9 @@ class Rooms { //the rooms shown in the cameras
           line(mouseX, mouseY-20, mouseX, mouseY+20);
           strokeWeight(0);
           flash = false;
-        } else{
-        
+        } else {
+
           flash = true;
-        
         }
       }
 
